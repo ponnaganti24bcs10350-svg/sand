@@ -3,13 +3,13 @@ const rateLimit = require("express-rate-limit");
 const jwt = require("jsonwebtoken");
 const crypto = require("crypto");
 const { OAuth2Client } = require("google-auth-library");
-const { OAuth2Client } = require("google-auth-library");
 const User = require("../models/User");
 const VerificationCode = require("../models/VerificationCode");
 const { sendVerificationEmail } = require("../services/emailService");
 const { protect } = require("../middleware/auth");
 
 const router = express.Router();
+
 const loginLimiter = rateLimit({
   windowMs: 15 * 60 * 1000,
   max: 10,
@@ -31,7 +31,7 @@ const verificationLimiter = rateLimit({
     message: "Too many verification requests. Please try again later.",
   },
 });
-const googleClient = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
+
 const googleClient = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
 
 const signToken = (id) =>
@@ -67,7 +67,7 @@ router.post("/send-verification", verificationLimiter, async (req, res) => {
       return res.status(409).json({ success: false, message: "An account with this email already exists" });
     }
 
-   const code = crypto.randomInt(100000, 1000000).toString();
+    const code = crypto.randomInt(100000, 1000000).toString();
     // Remove older codes for this email
     await VerificationCode.deleteMany({ email: normalizedEmail });
 
@@ -159,7 +159,7 @@ router.post("/signup", async (req, res) => {
       return res.status(409).json({ success: false, message: "An account with this email already exists" });
     }
 
-    const user = await User.create({ name, email, password,role:role=== "company" ? "company" : "student" });
+    const user = await User.create({ name, email, password, role: role === "company" ? "company" : "student" });
     user.resetDailyIfNeeded();
     await user.save();
 
@@ -214,11 +214,11 @@ router.post("/google", async (req, res) => {
   try {
     const { credential, email: bodyEmail, name: bodyName, picture: bodyPicture, googleId: bodyGoogleId } = req.body;
     if (!credential) {
-  return res.status(400).json({
-    success: false,
-    message: "Google credential is required",
-  });
-}
+      return res.status(400).json({
+        success: false,
+        message: "Google credential is required",
+      });
+    }
     let email = bodyEmail;
     let name = bodyName;
     let picture = bodyPicture;
@@ -230,25 +230,25 @@ router.post("/google", async (req, res) => {
           idToken: credential,
           audience: process.env.GOOGLE_CLIENT_ID,
         });
-       const payload = ticket.getPayload();
+        const payload = ticket.getPayload();
 
-if (!payload.email_verified) {
-  return res.status(401).json({
-    success: false,
-    message: "Google email is not verified",
-  });
-}
+        if (!payload.email_verified) {
+          return res.status(401).json({
+            success: false,
+            message: "Google email is not verified",
+          });
+        }
 
-email = payload.email;
-name = payload.name;
-picture = payload.picture;
-googleId = payload.sub;
+        email = payload.email;
+        name = payload.name;
+        picture = payload.picture;
+        googleId = payload.sub;
       } catch (verifyErr) {
-  return res.status(401).json({
-    success: false,
-    message: "Invalid Google credential",
-  });
-}
+        return res.status(401).json({
+          success: false,
+          message: "Invalid Google credential",
+        });
+      }
     }
 
     if (!email) {
