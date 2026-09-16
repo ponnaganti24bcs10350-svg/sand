@@ -1,6 +1,13 @@
 node_modules
 .env
+<<<<<<< HEAD
 dist
 build
 .DS_Store.env
 .env.local
+=======
+.env.*
+dist
+build
+.DS_Store
+>>>>>>> origin/ishikas-15th-sept

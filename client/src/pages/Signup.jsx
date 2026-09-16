@@ -2,6 +2,12 @@ import { useState } from "react";
 import { getApiUrl } from "../config/api";
 
 
+<<<<<<< HEAD
+=======
+import { signInWithPopup } from "firebase/auth";
+import { auth, googleProvider } from "../config/firebase";
+
+>>>>>>> origin/ishikas-15th-sept
 function Signup({ onLogin, onSignIn, onRequireVerification }) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -82,6 +88,7 @@ function Signup({ onLogin, onSignIn, onRequireVerification }) {
     }
   }
 
+<<<<<<< HEAD
   function handleGoogleSignIn() {
     const clientId =
       import.meta.env.VITE_GOOGLE_CLIENT_ID ||
@@ -163,6 +170,21 @@ function Signup({ onLogin, onSignIn, onRequireVerification }) {
         console.error("Google accounts.id prompt error:", e);
         setError("Failed to open Google Sign-In prompt.");
       }
+=======
+  async function handleGoogleSignIn() {
+    try {
+      setLoading(true);
+      setError("");
+      
+      const result = await signInWithPopup(auth, googleProvider);
+      const idToken = await result.user.getIdToken();
+      
+      handleGoogleAuthResponse({ credential: idToken });
+    } catch (error) {
+      console.error("Firebase Google Auth Error:", error);
+      setError("Google popup was closed or authentication failed.");
+      setLoading(false);
+>>>>>>> origin/ishikas-15th-sept
     }
   }
 

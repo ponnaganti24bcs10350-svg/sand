@@ -2,6 +2,12 @@ import { useEffect, useState } from "react";
 import { getApiUrl } from "../config/api";
 
 
+<<<<<<< HEAD
+=======
+import { signInWithPopup } from "firebase/auth";
+import { auth, googleProvider } from "../config/firebase";
+
+>>>>>>> origin/ishikas-15th-sept
 function Login({
   onSignup,
   onCompanySignup,
@@ -13,6 +19,7 @@ function Login({
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
+<<<<<<< HEAD
   useEffect(() => {
     const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
     if (window.google?.accounts?.id && clientId) {
@@ -38,6 +45,8 @@ function Login({
   }, []);
 
 
+=======
+>>>>>>> origin/ishikas-15th-sept
   async function handleSubmit(e) {
     e.preventDefault();
 
@@ -108,7 +117,11 @@ function Login({
 
       localStorage.setItem("token", result.token);
       localStorage.setItem("user", JSON.stringify(result.user));
+<<<<<<< HEAD
 sessionStorage.setItem("justLoggedIn", "true");
+=======
+      sessionStorage.setItem("justLoggedIn", "true");
+>>>>>>> origin/ishikas-15th-sept
       onLogin();
     } catch (error) {
       console.error(error);
@@ -118,6 +131,7 @@ sessionStorage.setItem("justLoggedIn", "true");
     }
   }
 
+<<<<<<< HEAD
   function handleGoogleSignIn() {
     const clientId =
       import.meta.env.VITE_GOOGLE_CLIENT_ID ||
@@ -199,6 +213,22 @@ sessionStorage.setItem("justLoggedIn", "true");
         console.error("Google accounts.id prompt error:", e);
         setError("Failed to open Google Sign-In prompt.");
       }
+=======
+  async function handleGoogleSignIn() {
+    try {
+      setLoading(true);
+      setError("");
+      
+      const result = await signInWithPopup(auth, googleProvider);
+      const idToken = await result.user.getIdToken();
+      
+      // Send the token to the backend
+      handleGoogleAuthResponse({ credential: idToken });
+    } catch (error) {
+      console.error("Firebase Google Auth Error:", error);
+      setError("Google popup was closed or authentication failed.");
+      setLoading(false);
+>>>>>>> origin/ishikas-15th-sept
     }
   }
 

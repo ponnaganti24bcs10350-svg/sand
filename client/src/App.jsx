@@ -10,7 +10,11 @@ import CompanySignup from "./pages/CompanySignup";
 import Profile from "./pages/Profile";
 import StudentInvitations from "./pages/StudentInvitations";
 import EmailVerification from "./pages/EmailVerification";
+<<<<<<< HEAD
 
+=======
+import Instructions from "./pages/Instructions";
+>>>>>>> origin/ishikas-15th-sept
 
 function App() {
   const [verificationData, setVerificationData] = useState(null);
@@ -32,7 +36,11 @@ function App() {
       }
     }
 
+<<<<<<< HEAD
     return "challenge";
+=======
+    return "instructions";
+>>>>>>> origin/ishikas-15th-sept
   });
 
   const [menuOpen, setMenuOpen] = useState(false);
@@ -98,13 +106,21 @@ function App() {
       if (loggedInUser.role === "company") {
         setPage("company");
       } else {
+<<<<<<< HEAD
         setPage("challenge");
+=======
+        setPage("instructions");
+>>>>>>> origin/ishikas-15th-sept
       }
 
       return;
     }
 
+<<<<<<< HEAD
     setPage("challenge");
+=======
+    setPage("instructions");
+>>>>>>> origin/ishikas-15th-sept
   }
 
   /* PRACTICE AGAIN */
@@ -190,6 +206,15 @@ function App() {
         />
       )}
 
+<<<<<<< HEAD
+=======
+      {/* ================= INSTRUCTIONS ================= */}
+
+      {page === "instructions" && (
+        <Instructions onProceed={() => setPage("challenge")} />
+      )}
+
+>>>>>>> origin/ishikas-15th-sept
       {/* ================= COMPANY DASHBOARD ================= */}
 
       {page === "company" && (
@@ -217,6 +242,10 @@ function App() {
         page !== "email-verification" &&
         page !== "company-signup" &&
         page !== "company" &&
+<<<<<<< HEAD
+=======
+        page !== "instructions" &&
+>>>>>>> origin/ishikas-15th-sept
         page !== "profile" && (
           <>
             {/* ================= HEADER ================= */}

@@ -192,6 +192,11 @@ const recordIntegrityEvent = async (req, res) => {
       "right_click",
       "shortcut",
       "multiple_session",
+<<<<<<< HEAD
+=======
+      "screen_share_stopped",
+      "webcam_stopped",
+>>>>>>> origin/ishikas-15th-sept
     ];
 
     if (!allowedEvents.includes(type)) {
@@ -215,8 +220,13 @@ const recordIntegrityEvent = async (req, res) => {
     }
 
     const penalties = {
+<<<<<<< HEAD
       tab_switch: 5,
       window_blur: 2,
+=======
+      tab_switch: 3,
+      window_blur: 0,
+>>>>>>> origin/ishikas-15th-sept
       fullscreen_exit: 5,
       copy: 5,
       paste: 5,
@@ -224,6 +234,11 @@ const recordIntegrityEvent = async (req, res) => {
       right_click: 2,
       shortcut: 3,
       multiple_session: 15,
+<<<<<<< HEAD
+=======
+      screen_share_stopped: 10,
+      webcam_stopped: 10,
+>>>>>>> origin/ishikas-15th-sept
     };
 
     const penalty = penalties[type] || 0;
@@ -238,11 +253,25 @@ const recordIntegrityEvent = async (req, res) => {
       metadata: metadata || {},
     });
 
+<<<<<<< HEAD
     await session.save();
+=======
+    let lockedUntil = null;
+    if (session.integrityScore <= 70) {
+      // 1 hour from now for this specific question
+      lockedUntil = new Date(Date.now() + 1 * 60 * 60 * 1000);
+      session.lockedUntil = lockedUntil;
+      await session.save();
+    }
+>>>>>>> origin/ishikas-15th-sept
 
     return res.json({
       success: true,
       integrityScore: session.integrityScore,
+<<<<<<< HEAD
+=======
+      lockedUntil,
+>>>>>>> origin/ishikas-15th-sept
     });
   } catch (error) {
     console.error("Record integrity event error:", error);
@@ -299,10 +328,25 @@ const submitAssessment = async (req, res) => {
 
 const getActiveAssessment = async (req, res) => {
   try {
+<<<<<<< HEAD
     const session = await AssessmentSession.findOne({
       candidate: req.user._id,
       status: "active",
     }).sort({ createdAt: -1 });
+=======
+    const { challengeId } = req.query;
+    
+    let query = {
+      candidate: req.user._id,
+      status: "active",
+    };
+    
+    if (challengeId) {
+      query.challenge = challengeId;
+    }
+
+    const session = await AssessmentSession.findOne(query).sort({ createdAt: -1 });
+>>>>>>> origin/ishikas-15th-sept
 
     if (!session) {
       return res.json({
@@ -320,6 +364,10 @@ const getActiveAssessment = async (req, res) => {
         startedAt: session.startedAt,
         integrityScore: session.integrityScore,
         status: session.status,
+<<<<<<< HEAD
+=======
+        lockedUntil: session.lockedUntil,
+>>>>>>> origin/ishikas-15th-sept
       },
     });
   } catch (error) {

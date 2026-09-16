@@ -138,6 +138,11 @@ async function runChallenge(req, res) {
 
               lastSolvedDate: today,
 
+<<<<<<< HEAD
+=======
+              lastChallengeSolvedAt: new Date(),
+
+>>>>>>> origin/ishikas-15th-sept
               totalSolved: {
                 $add: ["$totalSolved", 1],
               },
