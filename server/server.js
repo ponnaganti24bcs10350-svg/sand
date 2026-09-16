@@ -12,20 +12,12 @@ const leaderboardRoutes = require("./routes/leaderboardRoutes");
 const progressRoutes = require("./routes/progressRoutes");
 const invitationRoutes = require("./routes/invitationRoutes");
 
-=======
->>>>>>> origin/vidya-work
-=======
->>>>>>> origin/vidya
 const app = express();
 
 // Middleware
 app.use(cors());
-=======
 app.use(express.json({limit:"1mb"}));
->>>>>>> origin/vidya-work
-=======
 app.use(express.json({limit:"1mb"}));
->>>>>>> origin/vidya
 
 // Health check
 app.get("/", (req, res) => {

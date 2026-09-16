@@ -1,33 +1,19 @@
 const User = require("../models/User");
-=======
->>>>>>> origin/vidya-work
-=======
->>>>>>> origin/vidya
 
 // GET LEADERBOARD
 // Only student accounts appear on the developer leaderboard.
 async function getLeaderboard(req, res) {
   try {
-=======
->>>>>>> origin/vidya-work
-=======
->>>>>>> origin/vidya
     const users = await User.find({
       role: "student",
     })
       .select(
-=======
         "name javascriptScore reactScore totalSolved"
->>>>>>> origin/vidya-work
-=======
         "name javascriptScore reactScore totalSolved"
->>>>>>> origin/vidya
       )
       .lean();
 
     const sortedUsers = users.sort((a, b) => {
-=======
->>>>>>> origin/vidya
       const aOverall =
         (a.javascriptScore + a.reactScore) / 2;
 
@@ -35,16 +21,10 @@ async function getLeaderboard(req, res) {
         (b.javascriptScore + b.reactScore) / 2;
 
       return bOverall - aOverall;
-=======
->>>>>>> origin/vidya-work
-=======
->>>>>>> origin/vidya
     });
 
     const rankedUsers = sortedUsers.map(
       (user, index) => {
-=======
->>>>>>> origin/vidya
         const overallScore = Math.round(
           (user.javascriptScore +
             user.reactScore) /
@@ -68,10 +48,6 @@ async function getLeaderboard(req, res) {
             user.totalSolved,
 
           overallScore,
-=======
->>>>>>> origin/vidya-work
-=======
->>>>>>> origin/vidya
         };
       }
     );

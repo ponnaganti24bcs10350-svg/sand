@@ -34,10 +34,6 @@ const assessmentSessionSchema = new mongoose.Schema(
       default: 100,
     },
 
-=======
->>>>>>> origin/vidya-work
-=======
->>>>>>> origin/vidya
     events: [
       {
         type: {
@@ -52,10 +48,6 @@ const assessmentSessionSchema = new mongoose.Schema(
             "shortcut",
             "window_blur",
             "multiple_session",
-=======
->>>>>>> origin/vidya-work
-=======
->>>>>>> origin/vidya
           ],
         },
 
@@ -77,12 +69,8 @@ const assessmentSessionSchema = new mongoose.Schema(
 );
 
 assessmentSessionSchema.index(
-=======
   { candidate: 1, status: 1 },
->>>>>>> origin/vidya-work
-=======
   { candidate: 1, status: 1 },
->>>>>>> origin/vidya
   {
     unique: true,
     partialFilterExpression: {

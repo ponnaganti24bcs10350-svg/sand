@@ -49,6 +49,4 @@ function testChallenge3(files) {
   };
 }
 
-=======
 module.exports = testChallenge3;
->>>>>>> origin/vidya

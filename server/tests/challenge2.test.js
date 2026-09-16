@@ -325,5 +325,3 @@ async function testChallenge2(files) {
 }
 
 module.exports = testChallenge2;
-=======
->>>>>>> origin/vidya

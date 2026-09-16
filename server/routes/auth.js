@@ -2,12 +2,8 @@ const express = require("express");
 const rateLimit = require("express-rate-limit");
 const jwt = require("jsonwebtoken");
 const crypto = require("crypto");
-=======
 const { OAuth2Client } = require("google-auth-library");
->>>>>>> origin/vidya-work
-=======
 const { OAuth2Client } = require("google-auth-library");
->>>>>>> origin/vidya
 const User = require("../models/User");
 const VerificationCode = require("../models/VerificationCode");
 const { sendVerificationEmail } = require("../services/emailService");
@@ -35,12 +31,8 @@ const verificationLimiter = rateLimit({
     message: "Too many verification requests. Please try again later.",
   },
 });
-=======
 const googleClient = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
->>>>>>> origin/vidya-work
-=======
 const googleClient = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
->>>>>>> origin/vidya
 
 const signToken = (id) =>
   jwt.sign({ id }, process.env.JWT_SECRET, {
@@ -53,10 +45,6 @@ const userResponse = (user) => ({
   email: user.email,
   role: user.role,
   avatar: user.avatar || null,
-=======
->>>>>>> origin/vidya-work
-=======
->>>>>>> origin/vidya
   javascriptScore: user.javascriptScore,
   reactScore: user.reactScore,
   progress: user.progressSummary(),
@@ -238,8 +226,6 @@ router.post("/google", async (req, res) => {
 
     if (credential) {
       try {
-=======
->>>>>>> origin/vidya
         const ticket = await googleClient.verifyIdToken({
           idToken: credential,
           audience: process.env.GOOGLE_CLIENT_ID,
@@ -261,10 +247,6 @@ googleId = payload.sub;
   return res.status(401).json({
     success: false,
     message: "Invalid Google credential",
-=======
->>>>>>> origin/vidya-work
-=======
->>>>>>> origin/vidya
   });
 }
     }

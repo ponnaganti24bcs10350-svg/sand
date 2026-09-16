@@ -50,10 +50,6 @@ const userSchema = new mongoose.Schema(
       default: null,
     },
 
-=======
->>>>>>> origin/vidya-work
-=======
->>>>>>> origin/vidya
     totalSolved: {
       type: Number,
       default: 0,
@@ -85,10 +81,6 @@ const userSchema = new mongoose.Schema(
       type: String,
       default: null,
     },
-=======
->>>>>>> origin/vidya-work
-=======
->>>>>>> origin/vidya
   },
   {
     timestamps: true,

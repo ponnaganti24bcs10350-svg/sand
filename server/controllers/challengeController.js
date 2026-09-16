@@ -59,11 +59,9 @@ async function runChallenge(req, res) {
     if (challengeId === "1") {
       result = await testChallenge1(files);
     } else if (challengeId === "2") {
-=======
       result = await testChallenge2(files);
     } else if (challengeId === "3") {
       result = await testChallenge3(files);
->>>>>>> origin/vidya
     } else {
       return res.json({
         passed: false,
@@ -140,10 +138,6 @@ async function runChallenge(req, res) {
 
               lastSolvedDate: today,
 
-=======
->>>>>>> origin/vidya-work
-=======
->>>>>>> origin/vidya
               totalSolved: {
                 $add: ["$totalSolved", 1],
               },

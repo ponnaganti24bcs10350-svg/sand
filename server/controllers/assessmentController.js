@@ -192,10 +192,6 @@ const recordIntegrityEvent = async (req, res) => {
       "right_click",
       "shortcut",
       "multiple_session",
-=======
->>>>>>> origin/vidya-work
-=======
->>>>>>> origin/vidya
     ];
 
     if (!allowedEvents.includes(type)) {
@@ -219,14 +215,10 @@ const recordIntegrityEvent = async (req, res) => {
     }
 
     const penalties = {
-=======
       tab_switch: 5,
       window_blur: 2,
->>>>>>> origin/vidya-work
-=======
       tab_switch: 5,
       window_blur: 2,
->>>>>>> origin/vidya
       fullscreen_exit: 5,
       copy: 5,
       paste: 5,
@@ -234,10 +226,6 @@ const recordIntegrityEvent = async (req, res) => {
       right_click: 2,
       shortcut: 3,
       multiple_session: 15,
-=======
->>>>>>> origin/vidya-work
-=======
->>>>>>> origin/vidya
     };
 
     const penalty = penalties[type] || 0;
@@ -252,20 +240,12 @@ const recordIntegrityEvent = async (req, res) => {
       metadata: metadata || {},
     });
 
-=======
     await session.save();
->>>>>>> origin/vidya-work
-=======
     await session.save();
->>>>>>> origin/vidya
 
     return res.json({
       success: true,
       integrityScore: session.integrityScore,
-=======
->>>>>>> origin/vidya-work
-=======
->>>>>>> origin/vidya
     });
   } catch (error) {
     console.error("Record integrity event error:", error);
@@ -322,16 +302,10 @@ const submitAssessment = async (req, res) => {
 
 const getActiveAssessment = async (req, res) => {
   try {
-=======
->>>>>>> origin/vidya
     const session = await AssessmentSession.findOne({
       candidate: req.user._id,
       status: "active",
     }).sort({ createdAt: -1 });
-=======
->>>>>>> origin/vidya-work
-=======
->>>>>>> origin/vidya
 
     if (!session) {
       return res.json({
@@ -349,10 +323,6 @@ const getActiveAssessment = async (req, res) => {
         startedAt: session.startedAt,
         integrityScore: session.integrityScore,
         status: session.status,
-=======
->>>>>>> origin/vidya-work
-=======
->>>>>>> origin/vidya
       },
     });
   } catch (error) {
