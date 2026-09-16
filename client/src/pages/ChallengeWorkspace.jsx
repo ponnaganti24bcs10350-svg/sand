@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { useEffect, useState } from "react";
 =======
 import { useEffect, useState, useRef } from "react";
@@ -7,6 +8,9 @@ import { useEffect, useState, useRef } from "react";
 =======
 import { useEffect, useState } from "react";
 >>>>>>> origin/vidya-work
+=======
+import { useEffect, useState } from "react";
+>>>>>>> origin/vidya
 // Or if using Vite src imports: import badgeBg from "../assets/pexels-alipazani-2810836.jpg";
 import FileExplorer from "../components/FileExplorer";
 import CodeEditor from "../components/CodeEditor";
@@ -16,10 +20,14 @@ import { getApiUrl } from "../config/api";
 const API_URL = getApiUrl();
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 function ChallengeWorkspace({ selectedChallenge }) {
 =======
 function ChallengeWorkspace({ selectedChallenge,setSelectedChallenge }) {
 >>>>>>> origin/vidya-work
+=======
+function ChallengeWorkspace({ selectedChallenge,setSelectedChallenge }) {
+>>>>>>> origin/vidya
   const challengeId = selectedChallenge?.challengeId || null;
 
   const [challenge, setChallenge] = useState(null);
@@ -33,6 +41,7 @@ const [assessmentAlreadyActive, setAssessmentAlreadyActive] = useState(false);
   const [result, setResult] = useState(null);
   const [isRunning, setIsRunning] = useState(false);
   const [isNavigating, setIsNavigating] = useState(false);
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 
@@ -49,6 +58,10 @@ const [assessmentAlreadyActive, setAssessmentAlreadyActive] = useState(false);
 
   // State to handle physical card swapping animation
 >>>>>>> origin/vidya-work
+=======
+
+  // State to handle physical card swapping animation
+>>>>>>> origin/vidya
   const [isSwapped, setIsSwapped] = useState(false);
 
   useEffect(() => {
@@ -61,11 +74,14 @@ const [assessmentAlreadyActive, setAssessmentAlreadyActive] = useState(false);
   }, [challengeId]);
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 const checkActiveAssessment = async () => {
 =======
 const checkActiveAssessment = async (targetChallengeId = null) => {
 >>>>>>> origin/ishikas-15th-sept
 =======
+=======
+>>>>>>> origin/vidya
   useEffect(() => {
   async function loadSelectedChallenge() {
     if (!challengeId) return;
@@ -113,7 +129,10 @@ const checkActiveAssessment = async (targetChallengeId = null) => {
   loadSelectedChallenge();
 }, [challengeId, setSelectedChallenge]);
 const checkActiveAssessment = async () => {
+<<<<<<< HEAD
 >>>>>>> origin/vidya-work
+=======
+>>>>>>> origin/vidya
   try {
     const token = localStorage.getItem("token");
 
@@ -121,13 +140,17 @@ const checkActiveAssessment = async () => {
       setCheckingAssessment(false);
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> origin/vidya-work
+=======
+>>>>>>> origin/vidya
       return;
     }
 
     const response = await fetch(
       `${API_URL}/api/assessment/active`,
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
       return false;
@@ -144,6 +167,8 @@ const checkActiveAssessment = async () => {
 >>>>>>> origin/ishikas-15th-sept
 =======
 >>>>>>> origin/vidya-work
+=======
+>>>>>>> origin/vidya
       {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -158,14 +183,18 @@ const checkActiveAssessment = async () => {
       setIntegrityScore(data.session.integrityScore || 100);
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> origin/vidya-work
+=======
+>>>>>>> origin/vidya
       setAssessmentAlreadyActive(true);
     }
   } catch (error) {
     console.error("Failed to check active assessment:", error);
   } finally {
     setCheckingAssessment(false);
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
       if (!targetChallengeId) setAssessmentAlreadyActive(true);
@@ -187,6 +216,8 @@ const checkActiveAssessment = async () => {
 >>>>>>> origin/ishikas-15th-sept
 =======
 >>>>>>> origin/vidya-work
+=======
+>>>>>>> origin/vidya
   }
 };
 useEffect(() => {
@@ -258,6 +289,7 @@ useEffect(() => {
       }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
       if (data.lockedUntil) {
         setAssessmentSession(prev => prev ? { ...prev, lockedUntil: data.lockedUntil } : prev);
@@ -265,11 +297,14 @@ useEffect(() => {
 >>>>>>> origin/ishikas-15th-sept
 =======
 >>>>>>> origin/vidya-work
+=======
+>>>>>>> origin/vidya
     } catch (error) {
       console.error("Integrity event error:", error);
     }
   };
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
   async function startAssessmentSession() {
@@ -279,10 +314,14 @@ useEffect(() => {
 =======
   async function startAssessmentSession() {
 >>>>>>> origin/vidya-work
+=======
+  async function startAssessmentSession() {
+>>>>>>> origin/vidya
     const token = localStorage.getItem("token");
     if (!token) throw new Error("You are not logged in");
 
     const body = {};
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     if (challengeId) body.challengeId = challengeId;
@@ -293,6 +332,9 @@ useEffect(() => {
 =======
     if (challengeId) body.challengeId = challengeId;
 >>>>>>> origin/vidya-work
+=======
+    if (challengeId) body.challengeId = challengeId;
+>>>>>>> origin/vidya
 
     const response = await fetch(`${API_URL}/api/assessment/start`, {
       method: "POST",
@@ -355,6 +397,7 @@ useEffect(() => {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     const savedCodeStr = localStorage.getItem(`challenge_code_${revealedChallenge.challengeId}`);
     if (savedCodeStr) {
@@ -369,6 +412,8 @@ useEffect(() => {
 >>>>>>> origin/ishikas-15th-sept
 =======
 >>>>>>> origin/vidya-work
+=======
+>>>>>>> origin/vidya
     if (!revealedChallenge?.files) {
       throw new Error("Invalid challenge data received");
     }
@@ -383,12 +428,16 @@ useEffect(() => {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> origin/vidya-work
+=======
+>>>>>>> origin/vidya
   async function handleStartProctoring() {
     try {
       setResult(null);
       const session = await startAssessmentSession();
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
   async function requestScreenShare() {
@@ -490,6 +539,8 @@ useEffect(() => {
 >>>>>>> origin/ishikas-15th-sept
 =======
 >>>>>>> origin/vidya-work
+=======
+>>>>>>> origin/vidya
       sessionStorage.setItem("assessmentStarted", "true");
       setProctoringActive(true);
 
@@ -518,6 +569,7 @@ useEffect(() => {
     const handleVisibilityChange = () => {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       if (document.hidden) reportIntegrityEvent("tab_switch");
 =======
       if (document.hidden) {
@@ -528,6 +580,9 @@ useEffect(() => {
 =======
       if (document.hidden) reportIntegrityEvent("tab_switch");
 >>>>>>> origin/vidya-work
+=======
+      if (document.hidden) reportIntegrityEvent("tab_switch");
+>>>>>>> origin/vidya
     };
 
     document.addEventListener("visibilitychange", handleVisibilityChange);
@@ -544,14 +599,18 @@ useEffect(() => {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> origin/vidya-work
+=======
+>>>>>>> origin/vidya
     // const handleCopy = (e) => { e.preventDefault(); reportIntegrityEvent("copy"); };
     // const handlePaste = (e) => { e.preventDefault(); reportIntegrityEvent("paste"); };
     // const handleCut = (e) => { e.preventDefault(); reportIntegrityEvent("cut"); };
     const handleCopy = () => {};
 const handlePaste = () => {};
 const handleCut = () => {};
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
     const handleCopy = (e) => { e.preventDefault(); reportIntegrityEvent("copy"); };
@@ -560,6 +619,8 @@ const handleCut = () => {};
 >>>>>>> origin/ishikas-15th-sept
 =======
 >>>>>>> origin/vidya-work
+=======
+>>>>>>> origin/vidya
     const handleContextMenu = (e) => { e.preventDefault(); reportIntegrityEvent("right_click"); };
 
     // const handleKeyDown = (e) => {
@@ -575,6 +636,7 @@ const handleCut = () => {};
     document.addEventListener("fullscreenchange", handleFullscreenChange);
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     // document.addEventListener("copy", handleCopy, true);
     // document.addEventListener("paste", handlePaste, true);
     // document.addEventListener("cut", handleCut, true);
@@ -588,6 +650,11 @@ const handleCut = () => {};
     // document.addEventListener("paste", handlePaste, true);
     // document.addEventListener("cut", handleCut, true);
 >>>>>>> origin/vidya-work
+=======
+    // document.addEventListener("copy", handleCopy, true);
+    // document.addEventListener("paste", handlePaste, true);
+    // document.addEventListener("cut", handleCut, true);
+>>>>>>> origin/vidya
     // document.addEventListener("contextmenu", handleContextMenu);
     // document.addEventListener("keydown", handleKeyDown, true);
     document.addEventListener("contextmenu", handleContextMenu);
@@ -595,6 +662,7 @@ const handleCut = () => {};
     return () => {
       window.removeEventListener("blur", handleBlur);
       document.removeEventListener("fullscreenchange", handleFullscreenChange);
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
       // document.removeEventListener("copy", handleCopy, true);
@@ -610,6 +678,11 @@ const handleCut = () => {};
       // document.removeEventListener("paste", handlePaste, true);
       // document.removeEventListener("cut", handleCut, true);
 >>>>>>> origin/vidya-work
+=======
+      // document.removeEventListener("copy", handleCopy, true);
+      // document.removeEventListener("paste", handlePaste, true);
+      // document.removeEventListener("cut", handleCut, true);
+>>>>>>> origin/vidya
       // document.removeEventListener("contextmenu", handleContextMenu);
       // document.removeEventListener("keydown", handleKeyDown, true);
       document.removeEventListener("contextmenu", handleContextMenu);
@@ -619,6 +692,7 @@ const handleCut = () => {};
   function handleCodeChange(newCode) {
     setChallenge((previous) => {
       if (!previous) return previous;
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
       return {
@@ -636,10 +710,16 @@ const handleCut = () => {};
         ...previous,
         files: { ...previous.files, [selectedFile]: newCode || "" },
 >>>>>>> origin/vidya-work
+=======
+      return {
+        ...previous,
+        files: { ...previous.files, [selectedFile]: newCode || "" },
+>>>>>>> origin/vidya
       };
     });
   }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -654,6 +734,8 @@ const handleCut = () => {};
 >>>>>>> origin/ishikas-15th-sept
 =======
 >>>>>>> origin/vidya-work
+=======
+>>>>>>> origin/vidya
   async function loadChallenge(direction) {
     if (isNavigating || isRunning || !challenge) return;
 
@@ -679,6 +761,7 @@ const handleCut = () => {};
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
       const savedCodeStr = localStorage.getItem(`challenge_code_${nextChallenge.challengeId}`);
       if (savedCodeStr) {
@@ -693,10 +776,13 @@ const handleCut = () => {};
 >>>>>>> origin/ishikas-15th-sept
 =======
 >>>>>>> origin/vidya-work
+=======
+>>>>>>> origin/vidya
       setChallenge(nextChallenge);
       const firstFile = Object.keys(nextChallenge.files || {})[0];
       setSelectedFile(firstFile || "");
       setResult(null);
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -716,6 +802,8 @@ const handleCut = () => {};
 >>>>>>> origin/ishikas-15th-sept
 =======
 >>>>>>> origin/vidya-work
+=======
+>>>>>>> origin/vidya
     } catch (error) {
       console.error(`Failed to load ${direction} challenge:`, error);
       setResult({
@@ -813,6 +901,7 @@ const handleCut = () => {};
 setProctoringActive(false);
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 setIsScreenShared(false);
 if (screenStream) {
@@ -827,6 +916,8 @@ if (webcamStream) {
 >>>>>>> origin/ishikas-15th-sept
 =======
 >>>>>>> origin/vidya-work
+=======
+>>>>>>> origin/vidya
 
 sessionStorage.removeItem("assessmentStarted");
       if (document.fullscreenElement) {
@@ -876,11 +967,14 @@ sessionStorage.removeItem("assessmentStarted");
   }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> origin/ishikas-15th-sept
 =======
 >>>>>>> origin/vidya-work
+=======
+>>>>>>> origin/vidya
   if (checkingAssessment) {
   return (
     <div className="badge-screen-container">
@@ -909,12 +1003,16 @@ if (assessmentAlreadyActive && !challenge) {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> origin/vidya-work
+=======
+>>>>>>> origin/vidya
         <button
           className="badge-start-btn"
           onClick={async () => {
             try {
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
           <button
@@ -930,6 +1028,8 @@ if (assessmentAlreadyActive && !challenge) {
 >>>>>>> origin/ishikas-15th-sept
 =======
 >>>>>>> origin/vidya-work
+=======
+>>>>>>> origin/vidya
               await document.documentElement.requestFullscreen();
 
               const token = localStorage.getItem("token");
@@ -967,6 +1067,7 @@ if (assessmentAlreadyActive && !challenge) {
   );
 }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -1041,6 +1142,8 @@ if (proctoringActive && showTabSwitchWarning) {
 >>>>>>> origin/ishikas-15th-sept
 =======
 >>>>>>> origin/vidya-work
+=======
+>>>>>>> origin/vidya
   /*
    * ------------------------------------
    * BADGE OVERLAY: TWO-CARD SWAP OVERLAY
@@ -1150,12 +1253,16 @@ if (proctoringActive && showTabSwitchWarning) {
                 alignItems: "center",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> origin/vidya-work
+=======
+>>>>>>> origin/vidya
                 gap: "6px",
                 fontSize: "13px",
                 fontWeight: 600,
                 whiteSpace: "nowrap",
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
                 backgroundColor: integrityScore > 85 ? "rgba(16, 185, 129, 0.1)" : integrityScore > 75 ? "rgba(245, 158, 11, 0.1)" : "rgba(239, 68, 68, 0.1)",
@@ -1168,6 +1275,8 @@ if (proctoringActive && showTabSwitchWarning) {
 >>>>>>> origin/ishikas-15th-sept
 =======
 >>>>>>> origin/vidya-work
+=======
+>>>>>>> origin/vidya
               }}
             >
               Integrity: {integrityScore}/100
@@ -1184,8 +1293,11 @@ if (proctoringActive && showTabSwitchWarning) {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> origin/vidya-work
+=======
+>>>>>>> origin/vidya
          
         </div>
       </header>
@@ -1228,6 +1340,7 @@ if (proctoringActive && showTabSwitchWarning) {
       <div className="terminal-panel" style={{ height: `${terminalHeight}px` }}>
         <TestResults result={result} isRunning={isRunning} />
       </div>
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
           <button
@@ -1298,6 +1411,8 @@ if (proctoringActive && showTabSwitchWarning) {
 >>>>>>> origin/ishikas-15th-sept
 =======
 >>>>>>> origin/vidya-work
+=======
+>>>>>>> origin/vidya
     </div>
   );
 }

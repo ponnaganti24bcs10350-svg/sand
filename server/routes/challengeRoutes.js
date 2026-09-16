@@ -12,6 +12,7 @@ const router = express.Router();
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 router.get("/random", protect ,(req, res) => {
 =======
 router.get("/random", protect, (req, res) => {
@@ -19,18 +20,25 @@ router.get("/random", protect, (req, res) => {
 =======
 router.get("/random", protect ,(req, res) => {
 >>>>>>> origin/vidya-work
+=======
+router.get("/random", protect ,(req, res) => {
+>>>>>>> origin/vidya
   const randomIndex = Math.floor(
     Math.random() * challenges.length
   );
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> origin/vidya-work
+=======
+>>>>>>> origin/vidya
   const randomChallenge =
     challenges[randomIndex];
 
   res.json(randomChallenge);
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
   const { challengeId, title, difficulty } =
@@ -42,6 +50,8 @@ router.get("/random", protect ,(req, res) => {
 >>>>>>> origin/ishikas-15th-sept
 =======
 >>>>>>> origin/vidya-work
+=======
+>>>>>>> origin/vidya
 });
 
 router.post(

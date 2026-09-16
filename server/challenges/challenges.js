@@ -401,9 +401,12 @@ Your team lead has asked you to investigate the performance degradation and fix 
 
     files: {
 <<<<<<< HEAD
+<<<<<<< HEAD
       // Candidate-visible repository goes here.
     },
 =======
+=======
+>>>>>>> origin/vidya
       "server/challenge2/routes/postRoutes.js": "const express = require(\"express\");\nconst { getPosts } = require(\"../controllers/postController\");\n\nconst router = express.Router();\n\nrouter.get(\"/\", getPosts);\n\nmodule.exports = router;",
       "server/challenge2/controllers/postController.js": "const Post = require(\"../models/Post\");\nconst User = require(\"../models/User\");\n\nasync function getPosts(req, res) {\n  try {\n    const page = Math.max(\n      parseInt(req.query.page, 10) || 1,\n      1\n    );\n\n    const limit = Math.min(\n      parseInt(req.query.limit, 10) || 20,\n      100\n    );\n\n    const skip = (page - 1) * limit;\n\n    // Intentionally inefficient implementation.\n    // The candidate must investigate why this becomes slow\n    // with a large dataset.\n    const posts = await Post.find({\n      status: \"published\",\n    })\n      .sort({ createdAt: -1 })\n      .skip(skip)\n      .limit(limit)\n      .lean();\n\n    const result = [];\n\n    for (const post of posts) {\n      const author = await User.findById(post.authorId).lean();\n\n      result.push({\n        id: post._id,\n        title: post.title,\n        content: post.content,\n        tags: post.tags,\n        createdAt: post.createdAt,\n        author: author\n          ? {\n              id: author._id,\n              name: author.name,\n              avatar: author.avatar,\n            }\n          : null,\n      });\n    }\n\n    // Additional unnecessary database work.\n    const total = await Post.countDocuments({\n      status: \"published\",\n    });\n\n    return res.status(200).json({\n      data: result,\n      pagination: {\n        page,\n        limit,\n        total,\n        totalPages: Math.ceil(total / limit),\n      },\n    });\n  } catch (error) {\n    console.error(error);\n\n    return res.status(500).json({\n      message: \"Failed to retrieve posts\",\n    });\n  }\n}\n\nmodule.exports = {\n  getPosts,\n};",
       "server/challenge2/models/Post.js": "const mongoose = require(\"mongoose\");\n\nconst postSchema = new mongoose.Schema(\n  {\n    authorId: {\n      type: mongoose.Schema.Types.ObjectId,\n      required: true,\n      index: true,\n    },\n\n    title: {\n      type: String,\n      required: true,\n    },\n\n    content: {\n      type: String,\n      required: true,\n    },\n\n    status: {\n      type: String,\n      enum: [\"published\", \"draft\"],\n      default: \"published\",\n      index: true,\n    },\n\n    tags: {\n      type: [String],\n      default: [],\n    },\n\n    createdAt: {\n      type: Date,\n      default: Date.now,\n      index: true,\n    },\n  },\n  {\n    versionKey: false,\n  }\n);\n\nmodule.exports = mongoose.model(\"Challenge2Post\", postSchema);",
@@ -413,7 +416,10 @@ Your team lead has asked you to investigate the performance degradation and fix 
       "server/challenge2/data/posts.json": "[\n  {\n    \"_id\": \"68b7a2010000000000000001\",\n    \"authorId\": \"68b7a1010000000000000001\",\n    \"title\": \"Building Better APIs\",\n    \"content\": \"A discussion about API design and backend engineering.\",\n    \"status\": \"published\",\n    \"tags\": [\"api\", \"backend\"],\n    \"createdAt\": \"2026-08-01T10:00:00.000Z\"\n  },\n  {\n    \"_id\": \"68b7a2010000000000000002\",\n    \"authorId\": \"68b7a1010000000000000002\",\n    \"title\": \"Scaling Node.js Applications\",\n    \"content\": \"Lessons from scaling a Node.js application.\",\n    \"status\": \"published\",\n    \"tags\": [\"node\", \"performance\"],\n    \"createdAt\": \"2026-08-02T10:00:00.000Z\"\n  },\n  {\n    \"_id\": \"68b7a2010000000000000003\",\n    \"authorId\": \"68b7a1010000000000000003\",\n    \"title\": \"Database Performance\",\n    \"content\": \"Understanding database queries and indexes.\",\n    \"status\": \"published\",\n    \"tags\": [\"mongodb\", \"database\"],\n    \"createdAt\": \"2026-08-03T10:00:00.000Z\"\n  }\n]",
       "server/challenge2/data/users.json": "[\n  {\n    \"_id\": \"68b7a1010000000000000001\",\n    \"name\": \"Aarav Sharma\",\n    \"avatar\": \"/avatars/aarav.png\"\n  },\n  {\n    \"_id\": \"68b7a1010000000000000002\",\n    \"name\": \"Diya Patel\",\n    \"avatar\": \"/avatars/diya.png\"\n  },\n  {\n    \"_id\": \"68b7a1010000000000000003\",\n    \"name\": \"Kabir Rao\",\n    \"avatar\": \"/avatars/kabir.png\"\n  },\n  {\n    \"_id\": \"68b7a1010000000000000004\",\n    \"name\": \"Meera Nair\",\n    \"avatar\": \"/avatars/meera.png\"\n  },\n  {\n    \"_id\": \"68b7a1010000000000000005\",\n    \"name\": \"Rohan Gupta\",\n    \"avatar\": \"/avatars/rohan.png\"\n  }\n]"
 }, 
+<<<<<<< HEAD
 >>>>>>> origin/vidya-work
+=======
+>>>>>>> origin/vidya
   },
 
   {
@@ -471,6 +477,7 @@ Your task is to investigate the system, identify the root causes, implement reli
     ],
 
     files: {
+<<<<<<< HEAD
 <<<<<<< HEAD
       // Candidate-visible repository goes here.
 =======
@@ -707,6 +714,9 @@ describe("CampusConnect production API", () => {
 });
 `,
 >>>>>>> origin/vidya-work
+=======
+      // Candidate-visible repository goes here.
+>>>>>>> origin/vidya
     },
   },
 ];

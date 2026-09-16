@@ -14,6 +14,7 @@ const invitationRoutes = require("./routes/invitationRoutes");
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 const helmet = require("helmet");
 const mongoSanitize = require("express-mongo-sanitize");
@@ -23,10 +24,13 @@ const rateLimit = require("express-rate-limit");
 >>>>>>> origin/ishikas-15th-sept
 =======
 >>>>>>> origin/vidya-work
+=======
+>>>>>>> origin/vidya
 const app = express();
 
 // Middleware
 app.use(cors());
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 app.use(express.json({limit:"1mb"}));
@@ -60,6 +64,9 @@ app.use(helmet());
 =======
 app.use(express.json({limit:"1mb"}));
 >>>>>>> origin/vidya-work
+=======
+app.use(express.json({limit:"1mb"}));
+>>>>>>> origin/vidya
 
 // Health check
 app.get("/", (req, res) => {

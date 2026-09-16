@@ -1,16 +1,20 @@
 const User = require("../models/User");
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 const challenges = require("../challenges/challenges");
 >>>>>>> origin/ishikas-15th-sept
 =======
 >>>>>>> origin/vidya-work
+=======
+>>>>>>> origin/vidya
 
 // GET LEADERBOARD
 // Only student accounts appear on the developer leaderboard.
 async function getLeaderboard(req, res) {
   try {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -19,10 +23,13 @@ async function getLeaderboard(req, res) {
 >>>>>>> origin/ishikas-15th-sept
 =======
 >>>>>>> origin/vidya-work
+=======
+>>>>>>> origin/vidya
     const users = await User.find({
       role: "student",
     })
       .select(
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
         "name javascriptScore reactScore totalSolved"
@@ -32,14 +39,20 @@ async function getLeaderboard(req, res) {
 =======
         "name javascriptScore reactScore totalSolved"
 >>>>>>> origin/vidya-work
+=======
+        "name javascriptScore reactScore totalSolved"
+>>>>>>> origin/vidya
       )
       .lean();
 
     const sortedUsers = users.sort((a, b) => {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> origin/vidya-work
+=======
+>>>>>>> origin/vidya
       const aOverall =
         (a.javascriptScore + a.reactScore) / 2;
 
@@ -47,6 +60,7 @@ async function getLeaderboard(req, res) {
         (b.javascriptScore + b.reactScore) / 2;
 
       return bOverall - aOverall;
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
       if (b.totalSolved !== a.totalSolved) {
@@ -60,14 +74,19 @@ async function getLeaderboard(req, res) {
 >>>>>>> origin/ishikas-15th-sept
 =======
 >>>>>>> origin/vidya-work
+=======
+>>>>>>> origin/vidya
     });
 
     const rankedUsers = sortedUsers.map(
       (user, index) => {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> origin/vidya-work
+=======
+>>>>>>> origin/vidya
         const overallScore = Math.round(
           (user.javascriptScore +
             user.reactScore) /
@@ -92,6 +111,7 @@ async function getLeaderboard(req, res) {
 
           overallScore,
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         const mernScore = totalChallenges > 0 
           ? Math.min(Math.round((user.totalSolved / totalChallenges) * 100), 100)
@@ -106,6 +126,8 @@ async function getLeaderboard(req, res) {
 >>>>>>> origin/ishikas-15th-sept
 =======
 >>>>>>> origin/vidya-work
+=======
+>>>>>>> origin/vidya
         };
       }
     );

@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/vidya
 function testChallenge3(files) {
   const routeFile =
     files["server/routes/userRoutes.js"];
@@ -50,6 +53,7 @@ function testChallenge3(files) {
   };
 }
 
+<<<<<<< HEAD
 module.exports = testChallenge3;
 =======
 const vm = require("vm");
@@ -343,3 +347,6 @@ async function testChallenge3(files) {
 
 module.exports = testChallenge3;
 >>>>>>> origin/vidya-work
+=======
+module.exports = testChallenge3;
+>>>>>>> origin/vidya

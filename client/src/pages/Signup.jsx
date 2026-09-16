@@ -4,6 +4,7 @@ import { getApiUrl } from "../config/api";
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 import { signInWithPopup } from "firebase/auth";
 import { auth, googleProvider } from "../config/firebase";
@@ -11,6 +12,8 @@ import { auth, googleProvider } from "../config/firebase";
 >>>>>>> origin/ishikas-15th-sept
 =======
 >>>>>>> origin/vidya-work
+=======
+>>>>>>> origin/vidya
 function Signup({ onLogin, onSignIn, onRequireVerification }) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -93,8 +96,11 @@ function Signup({ onLogin, onSignIn, onRequireVerification }) {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> origin/vidya-work
+=======
+>>>>>>> origin/vidya
   function handleGoogleSignIn() {
     const clientId =
       import.meta.env.VITE_GOOGLE_CLIENT_ID ||
@@ -177,6 +183,7 @@ function Signup({ onLogin, onSignIn, onRequireVerification }) {
         setError("Failed to open Google Sign-In prompt.");
       }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
   async function handleGoogleSignIn() {
     try {
@@ -194,6 +201,8 @@ function Signup({ onLogin, onSignIn, onRequireVerification }) {
 >>>>>>> origin/ishikas-15th-sept
 =======
 >>>>>>> origin/vidya-work
+=======
+>>>>>>> origin/vidya
     }
   }
 

@@ -2,12 +2,16 @@ node_modules
 .env
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> origin/vidya-work
+=======
+>>>>>>> origin/vidya
 dist
 build
 .DS_Store.env
 .env.local
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 .env.*
@@ -17,3 +21,5 @@ build
 >>>>>>> origin/ishikas-15th-sept
 =======
 >>>>>>> origin/vidya-work
+=======
+>>>>>>> origin/vidya

@@ -20,6 +20,7 @@
     "express": "^5.2.1",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     "express-rate-limit": "^8.7.0",
     "google-auth-library": "^11.0.2",
 =======
@@ -34,6 +35,10 @@
     "express-rate-limit": "^8.7.0",
     "google-auth-library": "^11.0.2",
 >>>>>>> origin/vidya-work
+=======
+    "express-rate-limit": "^8.7.0",
+    "google-auth-library": "^11.0.2",
+>>>>>>> origin/vidya
     "jsonwebtoken": "^9.0.3",
     "mongoose": "^9.9.4",
     "nodemailer": "^10.0.0",

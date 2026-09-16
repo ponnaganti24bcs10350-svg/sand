@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 function testChallenge2(files) {
   const middleware =
     files["server/middleware/authMiddleware.js"];
@@ -53,6 +54,8 @@ function testChallenge2(files) {
 
 module.exports = testChallenge2;
 =======
+=======
+>>>>>>> origin/vidya
 const vm = require("vm");
 
 function loadModule(source, filename, mocks) {
@@ -380,4 +383,7 @@ async function testChallenge2(files) {
 }
 
 module.exports = testChallenge2;
+<<<<<<< HEAD
 >>>>>>> origin/vidya-work
+=======
+>>>>>>> origin/vidya

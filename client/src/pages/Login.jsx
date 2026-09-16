@@ -4,6 +4,7 @@ import { getApiUrl } from "../config/api";
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 import { signInWithPopup } from "firebase/auth";
 import { auth, googleProvider } from "../config/firebase";
@@ -11,6 +12,8 @@ import { auth, googleProvider } from "../config/firebase";
 >>>>>>> origin/ishikas-15th-sept
 =======
 >>>>>>> origin/vidya-work
+=======
+>>>>>>> origin/vidya
 function Login({
   onSignup,
   onCompanySignup,
@@ -24,8 +27,11 @@ function Login({
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> origin/vidya-work
+=======
+>>>>>>> origin/vidya
   useEffect(() => {
     const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
     if (window.google?.accounts?.id && clientId) {
@@ -52,10 +58,13 @@ function Login({
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> origin/ishikas-15th-sept
 =======
 >>>>>>> origin/vidya-work
+=======
+>>>>>>> origin/vidya
   async function handleSubmit(e) {
     e.preventDefault();
 
@@ -128,6 +137,7 @@ function Login({
       localStorage.setItem("user", JSON.stringify(result.user));
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 sessionStorage.setItem("justLoggedIn", "true");
 =======
       sessionStorage.setItem("justLoggedIn", "true");
@@ -135,6 +145,9 @@ sessionStorage.setItem("justLoggedIn", "true");
 =======
 sessionStorage.setItem("justLoggedIn", "true");
 >>>>>>> origin/vidya-work
+=======
+sessionStorage.setItem("justLoggedIn", "true");
+>>>>>>> origin/vidya
       onLogin();
     } catch (error) {
       console.error(error);
@@ -146,8 +159,11 @@ sessionStorage.setItem("justLoggedIn", "true");
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> origin/vidya-work
+=======
+>>>>>>> origin/vidya
   function handleGoogleSignIn() {
     const clientId =
       import.meta.env.VITE_GOOGLE_CLIENT_ID ||
@@ -230,6 +246,7 @@ sessionStorage.setItem("justLoggedIn", "true");
         setError("Failed to open Google Sign-In prompt.");
       }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
   async function handleGoogleSignIn() {
     try {
@@ -248,6 +265,8 @@ sessionStorage.setItem("justLoggedIn", "true");
 >>>>>>> origin/ishikas-15th-sept
 =======
 >>>>>>> origin/vidya-work
+=======
+>>>>>>> origin/vidya
     }
   }
 

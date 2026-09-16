@@ -12,6 +12,7 @@ import StudentInvitations from "./pages/StudentInvitations";
 import EmailVerification from "./pages/EmailVerification";
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 import Instructions from "./pages/Instructions";
@@ -19,11 +20,16 @@ import Instructions from "./pages/Instructions";
 
 function App() {
 =======
+=======
+>>>>>>> origin/vidya
 
 
 function App() {
   
+<<<<<<< HEAD
 >>>>>>> origin/vidya-work
+=======
+>>>>>>> origin/vidya
   const [verificationData, setVerificationData] = useState(null);
   const [page, setPage] = useState(() => {
     const token = localStorage.getItem("token");
@@ -45,6 +51,7 @@ function App() {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     return "challenge";
 =======
     return "instructions";
@@ -52,6 +59,9 @@ function App() {
 =======
     return "challenge";
 >>>>>>> origin/vidya-work
+=======
+    return "challenge";
+>>>>>>> origin/vidya
   });
 
   const [menuOpen, setMenuOpen] = useState(false);
@@ -68,7 +78,10 @@ function App() {
       : null;
   });
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> origin/vidya
     /* INITIAL BROWSER HISTORY */
 
   useEffect(() => {
@@ -90,7 +103,10 @@ function App() {
       window.location.href
     );
   }, []);
+<<<<<<< HEAD
 >>>>>>> origin/vidya-work
+=======
+>>>>>>> origin/vidya
 
   /* KEEP USER PROGRESS UPDATED */
 
@@ -117,13 +133,18 @@ function App() {
     };
   }, []);
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
  
 >>>>>>> origin/vidya-work
+=======
+ 
+>>>>>>> origin/vidya
 
   /* NAVIGATION */
 
   function changePage(newPage) {
+<<<<<<< HEAD
 <<<<<<< HEAD
     setPage(newPage);
     setMenuOpen(false);
@@ -174,6 +195,8 @@ function App() {
   setPage("challenge");
 }
 =======
+=======
+>>>>>>> origin/vidya
   const newState = {
     sandbox: true,
     page: newPage,
@@ -288,7 +311,10 @@ useEffect(() => {
     );
   };
 }, []);
+<<<<<<< HEAD
 >>>>>>> origin/vidya-work
+=======
+>>>>>>> origin/vidya
 
   /* LOGOUT */
 
@@ -364,6 +390,7 @@ useEffect(() => {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
       {/* ================= INSTRUCTIONS ================= */}
 
@@ -374,6 +401,8 @@ useEffect(() => {
 >>>>>>> origin/ishikas-15th-sept
 =======
 >>>>>>> origin/vidya-work
+=======
+>>>>>>> origin/vidya
       {/* ================= COMPANY DASHBOARD ================= */}
 
       {page === "company" && (
@@ -389,6 +418,7 @@ useEffect(() => {
         <Profile
           user={user}
 <<<<<<< HEAD
+<<<<<<< HEAD
           onBack={() =>
             setPage("challenge")
           }
@@ -397,6 +427,11 @@ useEffect(() => {
   changePage("challenge")
 }
 >>>>>>> origin/vidya-work
+=======
+         onBack={() =>
+  changePage("challenge")
+}
+>>>>>>> origin/vidya
         />
       )}
 
@@ -409,11 +444,14 @@ useEffect(() => {
         page !== "company" &&
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         page !== "instructions" &&
 >>>>>>> origin/ishikas-15th-sept
 =======
 >>>>>>> origin/vidya-work
+=======
+>>>>>>> origin/vidya
         page !== "profile" && (
           <>
             {/* ================= HEADER ================= */}
@@ -515,9 +553,13 @@ useEffect(() => {
                   selectedChallenge
                 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
                 setSelectedChallenge={setSelectedChallenge}
 >>>>>>> origin/vidya-work
+=======
+                setSelectedChallenge={setSelectedChallenge}
+>>>>>>> origin/vidya
               />
             )}
 

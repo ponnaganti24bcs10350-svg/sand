@@ -87,12 +87,16 @@ function Leaderboard() {
                     <div className="skill-label">
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> origin/vidya-work
+=======
+>>>>>>> origin/vidya
                       <span>JavaScript</span>
 
                       <span>
                         {user.javascriptScore}%
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
                       <span>MERN</span>
@@ -102,6 +106,8 @@ function Leaderboard() {
 >>>>>>> origin/ishikas-15th-sept
 =======
 >>>>>>> origin/vidya-work
+=======
+>>>>>>> origin/vidya
                       </span>
                     </div>
 
@@ -111,6 +117,7 @@ function Leaderboard() {
                         style={{
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                           width: `${user.javascriptScore}%`,
 =======
                           width: `${user.mernScore}%`,
@@ -118,14 +125,20 @@ function Leaderboard() {
 =======
                           width: `${user.javascriptScore}%`,
 >>>>>>> origin/vidya-work
+=======
+                          width: `${user.javascriptScore}%`,
+>>>>>>> origin/vidya
                         }}
                       />
                     </div>
                   </div>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> origin/vidya-work
+=======
+>>>>>>> origin/vidya
 
                   <div className="skill">
                     <div className="skill-label">
@@ -156,10 +169,13 @@ function Leaderboard() {
                     OVERALL SCORE
                   </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> origin/ishikas-15th-sept
 =======
 >>>>>>> origin/vidya-work
+=======
+>>>>>>> origin/vidya
                 </div>
               </div>
             ))}

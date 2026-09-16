@@ -4,6 +4,7 @@ const jwt = require("jsonwebtoken");
 const crypto = require("crypto");
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 const { OAuth2Client } = require("google-auth-library");
 =======
 const { initializeApp, getApps, cert } = require("firebase-admin/app");
@@ -25,6 +26,9 @@ if (!getApps().length) {
 =======
 const { OAuth2Client } = require("google-auth-library");
 >>>>>>> origin/vidya-work
+=======
+const { OAuth2Client } = require("google-auth-library");
+>>>>>>> origin/vidya
 const User = require("../models/User");
 const VerificationCode = require("../models/VerificationCode");
 const { sendVerificationEmail } = require("../services/emailService");
@@ -54,6 +58,7 @@ const verificationLimiter = rateLimit({
 });
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 const googleClient = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
 =======
 // Google client removed for Firebase
@@ -61,6 +66,9 @@ const googleClient = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
 =======
 const googleClient = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
 >>>>>>> origin/vidya-work
+=======
+const googleClient = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
+>>>>>>> origin/vidya
 
 const signToken = (id) =>
   jwt.sign({ id }, process.env.JWT_SECRET, {
@@ -75,11 +83,14 @@ const userResponse = (user) => ({
   avatar: user.avatar || null,
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
   barredUntil: user.barredUntil || null,
 >>>>>>> origin/ishikas-15th-sept
 =======
 >>>>>>> origin/vidya-work
+=======
+>>>>>>> origin/vidya
   javascriptScore: user.javascriptScore,
   reactScore: user.reactScore,
   progress: user.progressSummary(),
@@ -263,8 +274,11 @@ router.post("/google", async (req, res) => {
       try {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> origin/vidya-work
+=======
+>>>>>>> origin/vidya
         const ticket = await googleClient.verifyIdToken({
           idToken: credential,
           audience: process.env.GOOGLE_CLIENT_ID,
@@ -287,6 +301,7 @@ googleId = payload.sub;
     success: false,
     message: "Invalid Google credential",
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         const decodedToken = await getAuth().verifyIdToken(credential);
         
@@ -301,6 +316,8 @@ googleId = payload.sub;
 >>>>>>> origin/ishikas-15th-sept
 =======
 >>>>>>> origin/vidya-work
+=======
+>>>>>>> origin/vidya
   });
 }
     }
