@@ -59,16 +59,6 @@ async function runChallenge(req, res) {
     if (challengeId === "1") {
       result = await testChallenge1(files);
     } else if (challengeId === "2") {
-<<<<<<< HEAD
-<<<<<<< HEAD
-      result = testChallenge2(files);
-    } else if (challengeId === "3") {
-      result = testChallenge3(files);
-=======
-      result = await testChallenge2(files);
-    } else if (challengeId === "3") {
-      result = await testChallenge3(files);
->>>>>>> origin/vidya-work
 =======
       result = await testChallenge2(files);
     } else if (challengeId === "3") {
@@ -150,13 +140,6 @@ async function runChallenge(req, res) {
 
               lastSolvedDate: today,
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-              lastChallengeSolvedAt: new Date(),
-
->>>>>>> origin/ishikas-15th-sept
 =======
 >>>>>>> origin/vidya-work
 =======

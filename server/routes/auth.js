@@ -2,27 +2,6 @@ const express = require("express");
 const rateLimit = require("express-rate-limit");
 const jwt = require("jsonwebtoken");
 const crypto = require("crypto");
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-const { OAuth2Client } = require("google-auth-library");
-=======
-const { initializeApp, getApps, cert } = require("firebase-admin/app");
-const { getAuth } = require("firebase-admin/auth");
-
-if (!getApps().length) {
-  try {
-    // We expect the service account JSON string in FIREBASE_SERVICE_ACCOUNT env variable
-    const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT);
-    initializeApp({
-      credential: cert(serviceAccount)
-    });
-  } catch (error) {
-    console.error("Firebase Admin initialization error. Ensure FIREBASE_SERVICE_ACCOUNT is set in .env");
-  }
-}
-
->>>>>>> origin/ishikas-15th-sept
 =======
 const { OAuth2Client } = require("google-auth-library");
 >>>>>>> origin/vidya-work
@@ -56,13 +35,6 @@ const verificationLimiter = rateLimit({
     message: "Too many verification requests. Please try again later.",
   },
 });
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-const googleClient = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
-=======
-// Google client removed for Firebase
->>>>>>> origin/ishikas-15th-sept
 =======
 const googleClient = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
 >>>>>>> origin/vidya-work
@@ -81,12 +53,6 @@ const userResponse = (user) => ({
   email: user.email,
   role: user.role,
   avatar: user.avatar || null,
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-  barredUntil: user.barredUntil || null,
->>>>>>> origin/ishikas-15th-sept
 =======
 >>>>>>> origin/vidya-work
 =======
@@ -272,11 +238,6 @@ router.post("/google", async (req, res) => {
 
     if (credential) {
       try {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> origin/vidya-work
 =======
 >>>>>>> origin/vidya
         const ticket = await googleClient.verifyIdToken({
@@ -300,20 +261,6 @@ googleId = payload.sub;
   return res.status(401).json({
     success: false,
     message: "Invalid Google credential",
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-        const decodedToken = await getAuth().verifyIdToken(credential);
-        
-        email = decodedToken.email;
-        name = decodedToken.name;
-        picture = decodedToken.picture;
-        googleId = decodedToken.uid;
-      } catch (verifyErr) {
-  return res.status(401).json({
-    success: false,
-    message: "Invalid Firebase credential",
->>>>>>> origin/ishikas-15th-sept
 =======
 >>>>>>> origin/vidya-work
 =======

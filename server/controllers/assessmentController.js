@@ -192,13 +192,6 @@ const recordIntegrityEvent = async (req, res) => {
       "right_click",
       "shortcut",
       "multiple_session",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-      "screen_share_stopped",
-      "webcam_stopped",
->>>>>>> origin/ishikas-15th-sept
 =======
 >>>>>>> origin/vidya-work
 =======
@@ -226,15 +219,6 @@ const recordIntegrityEvent = async (req, res) => {
     }
 
     const penalties = {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-      tab_switch: 5,
-      window_blur: 2,
-=======
-      tab_switch: 3,
-      window_blur: 0,
->>>>>>> origin/ishikas-15th-sept
 =======
       tab_switch: 5,
       window_blur: 2,
@@ -250,13 +234,6 @@ const recordIntegrityEvent = async (req, res) => {
       right_click: 2,
       shortcut: 3,
       multiple_session: 15,
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-      screen_share_stopped: 10,
-      webcam_stopped: 10,
->>>>>>> origin/ishikas-15th-sept
 =======
 >>>>>>> origin/vidya-work
 =======
@@ -275,19 +252,6 @@ const recordIntegrityEvent = async (req, res) => {
       metadata: metadata || {},
     });
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    await session.save();
-=======
-    let lockedUntil = null;
-    if (session.integrityScore <= 70) {
-      // 1 hour from now for this specific question
-      lockedUntil = new Date(Date.now() + 1 * 60 * 60 * 1000);
-      session.lockedUntil = lockedUntil;
-      await session.save();
-    }
->>>>>>> origin/ishikas-15th-sept
 =======
     await session.save();
 >>>>>>> origin/vidya-work
@@ -298,12 +262,6 @@ const recordIntegrityEvent = async (req, res) => {
     return res.json({
       success: true,
       integrityScore: session.integrityScore,
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-      lockedUntil,
->>>>>>> origin/ishikas-15th-sept
 =======
 >>>>>>> origin/vidya-work
 =======
@@ -364,33 +322,12 @@ const submitAssessment = async (req, res) => {
 
 const getActiveAssessment = async (req, res) => {
   try {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> origin/vidya-work
 =======
 >>>>>>> origin/vidya
     const session = await AssessmentSession.findOne({
       candidate: req.user._id,
       status: "active",
     }).sort({ createdAt: -1 });
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-    const { challengeId } = req.query;
-    
-    let query = {
-      candidate: req.user._id,
-      status: "active",
-    };
-    
-    if (challengeId) {
-      query.challenge = challengeId;
-    }
-
-    const session = await AssessmentSession.findOne(query).sort({ createdAt: -1 });
->>>>>>> origin/ishikas-15th-sept
 =======
 >>>>>>> origin/vidya-work
 =======
@@ -412,12 +349,6 @@ const getActiveAssessment = async (req, res) => {
         startedAt: session.startedAt,
         integrityScore: session.integrityScore,
         status: session.status,
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-        lockedUntil: session.lockedUntil,
->>>>>>> origin/ishikas-15th-sept
 =======
 >>>>>>> origin/vidya-work
 =======

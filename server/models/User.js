@@ -50,16 +50,6 @@ const userSchema = new mongoose.Schema(
       default: null,
     },
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-    lastChallengeSolvedAt: {
-      type: Date,
-      default: null,
-    },
-
->>>>>>> origin/ishikas-15th-sept
 =======
 >>>>>>> origin/vidya-work
 =======
@@ -95,16 +85,6 @@ const userSchema = new mongoose.Schema(
       type: String,
       default: null,
     },
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
-    barredUntil: {
-      type: Date,
-      default: null,
-    },
->>>>>>> origin/ishikas-15th-sept
 =======
 >>>>>>> origin/vidya-work
 =======
