@@ -11,12 +11,19 @@ import Profile from "./pages/Profile";
 import StudentInvitations from "./pages/StudentInvitations";
 import EmailVerification from "./pages/EmailVerification";
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 import Instructions from "./pages/Instructions";
 >>>>>>> origin/ishikas-15th-sept
 
 function App() {
+=======
+
+
+function App() {
+  
+>>>>>>> origin/vidya-work
   const [verificationData, setVerificationData] = useState(null);
   const [page, setPage] = useState(() => {
     const token = localStorage.getItem("token");
@@ -37,10 +44,14 @@ function App() {
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     return "challenge";
 =======
     return "instructions";
 >>>>>>> origin/ishikas-15th-sept
+=======
+    return "challenge";
+>>>>>>> origin/vidya-work
   });
 
   const [menuOpen, setMenuOpen] = useState(false);
@@ -56,6 +67,30 @@ function App() {
       ? JSON.parse(savedUser)
       : null;
   });
+<<<<<<< HEAD
+=======
+    /* INITIAL BROWSER HISTORY */
+
+  useEffect(() => {
+    const currentState = {
+      sandbox: true,
+      page,
+      selectedChallenge,
+    };
+
+    window.history.replaceState(
+      currentState,
+      "",
+      window.location.href
+    );
+
+    window.history.pushState(
+      currentState,
+      "",
+      window.location.href
+    );
+  }, []);
+>>>>>>> origin/vidya-work
 
   /* KEEP USER PROGRESS UPDATED */
 
@@ -81,10 +116,15 @@ function App() {
       );
     };
   }, []);
+<<<<<<< HEAD
+=======
+ 
+>>>>>>> origin/vidya-work
 
   /* NAVIGATION */
 
   function changePage(newPage) {
+<<<<<<< HEAD
     setPage(newPage);
     setMenuOpen(false);
   }
@@ -133,6 +173,122 @@ function App() {
   setMenuOpen(false);
   setPage("challenge");
 }
+=======
+  const newState = {
+    sandbox: true,
+    page: newPage,
+    selectedChallenge: null,
+  };
+
+  setPage(newPage);
+  setSelectedChallenge(null);
+  setMenuOpen(false);
+
+  window.history.pushState(
+    newState,
+    "",
+    window.location.href
+  );
+}
+
+  /* LOGIN */
+
+function handleLogin() {
+  const savedUser =
+    localStorage.getItem("user");
+
+  if (savedUser) {
+    const loggedInUser =
+      JSON.parse(savedUser);
+
+    setUser(loggedInUser);
+    setSelectedChallenge(null);
+    setMenuOpen(false);
+
+    const nextPage =
+      loggedInUser.role === "company"
+        ? "company"
+        : "challenge";
+
+    setPage(nextPage);
+
+    window.history.pushState(
+      {
+        sandbox: true,
+        page: nextPage,
+        selectedChallenge: null,
+      },
+      "",
+      window.location.href
+    );
+
+    return;
+  }
+
+  setPage("challenge");
+
+  window.history.pushState(
+    {
+      sandbox: true,
+      page: "challenge",
+      selectedChallenge: null,
+    },
+    "",
+    window.location.href
+  );
+}
+
+  /* PRACTICE AGAIN */
+
+function handlePractice(challengeId) {
+  const selected = {
+    challengeId: String(challengeId),
+  };
+
+  const newState = {
+    sandbox: true,
+    page: "challenge",
+    selectedChallenge: selected,
+  };
+
+  setSelectedChallenge(selected);
+  setMenuOpen(false);
+  setPage("challenge");
+
+  window.history.pushState(
+    newState,
+    "",
+    window.location.href
+  );
+}
+useEffect(() => {
+  function handlePopState(event) {
+    if (!event.state?.sandbox) {
+      return;
+    }
+
+    setPage(event.state.page || "challenge");
+
+    setSelectedChallenge(
+      event.state.selectedChallenge || null
+    );
+
+    setMenuOpen(false);
+  }
+
+  window.addEventListener(
+    "popstate",
+    handlePopState
+  );
+
+  return () => {
+    window.removeEventListener(
+      "popstate",
+      handlePopState
+    );
+  };
+}, []);
+>>>>>>> origin/vidya-work
 
   /* LOGOUT */
 
@@ -207,6 +363,7 @@ function App() {
       )}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
       {/* ================= INSTRUCTIONS ================= */}
 
@@ -215,6 +372,8 @@ function App() {
       )}
 
 >>>>>>> origin/ishikas-15th-sept
+=======
+>>>>>>> origin/vidya-work
       {/* ================= COMPANY DASHBOARD ================= */}
 
       {page === "company" && (
@@ -229,9 +388,15 @@ function App() {
       {page === "profile" && (
         <Profile
           user={user}
+<<<<<<< HEAD
           onBack={() =>
             setPage("challenge")
           }
+=======
+         onBack={() =>
+  changePage("challenge")
+}
+>>>>>>> origin/vidya-work
         />
       )}
 
@@ -243,9 +408,12 @@ function App() {
         page !== "company-signup" &&
         page !== "company" &&
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         page !== "instructions" &&
 >>>>>>> origin/ishikas-15th-sept
+=======
+>>>>>>> origin/vidya-work
         page !== "profile" && (
           <>
             {/* ================= HEADER ================= */}
@@ -346,6 +514,10 @@ function App() {
                 selectedChallenge={
                   selectedChallenge
                 }
+<<<<<<< HEAD
+=======
+                setSelectedChallenge={setSelectedChallenge}
+>>>>>>> origin/vidya-work
               />
             )}
 

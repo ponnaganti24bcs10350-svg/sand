@@ -51,6 +51,7 @@ const userSchema = new mongoose.Schema(
     },
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     lastChallengeSolvedAt: {
       type: Date,
@@ -58,6 +59,8 @@ const userSchema = new mongoose.Schema(
     },
 
 >>>>>>> origin/ishikas-15th-sept
+=======
+>>>>>>> origin/vidya-work
     totalSolved: {
       type: Number,
       default: 0,
@@ -90,6 +93,7 @@ const userSchema = new mongoose.Schema(
       default: null,
     },
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
     barredUntil: {
@@ -97,6 +101,8 @@ const userSchema = new mongoose.Schema(
       default: null,
     },
 >>>>>>> origin/ishikas-15th-sept
+=======
+>>>>>>> origin/vidya-work
   },
   {
     timestamps: true,

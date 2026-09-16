@@ -193,10 +193,13 @@ const recordIntegrityEvent = async (req, res) => {
       "shortcut",
       "multiple_session",
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
       "screen_share_stopped",
       "webcam_stopped",
 >>>>>>> origin/ishikas-15th-sept
+=======
+>>>>>>> origin/vidya-work
     ];
 
     if (!allowedEvents.includes(type)) {
@@ -221,12 +224,17 @@ const recordIntegrityEvent = async (req, res) => {
 
     const penalties = {
 <<<<<<< HEAD
+<<<<<<< HEAD
       tab_switch: 5,
       window_blur: 2,
 =======
       tab_switch: 3,
       window_blur: 0,
 >>>>>>> origin/ishikas-15th-sept
+=======
+      tab_switch: 5,
+      window_blur: 2,
+>>>>>>> origin/vidya-work
       fullscreen_exit: 5,
       copy: 5,
       paste: 5,
@@ -235,10 +243,13 @@ const recordIntegrityEvent = async (req, res) => {
       shortcut: 3,
       multiple_session: 15,
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
       screen_share_stopped: 10,
       webcam_stopped: 10,
 >>>>>>> origin/ishikas-15th-sept
+=======
+>>>>>>> origin/vidya-work
     };
 
     const penalty = penalties[type] || 0;
@@ -254,6 +265,7 @@ const recordIntegrityEvent = async (req, res) => {
     });
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     await session.save();
 =======
     let lockedUntil = null;
@@ -264,14 +276,20 @@ const recordIntegrityEvent = async (req, res) => {
       await session.save();
     }
 >>>>>>> origin/ishikas-15th-sept
+=======
+    await session.save();
+>>>>>>> origin/vidya-work
 
     return res.json({
       success: true,
       integrityScore: session.integrityScore,
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
       lockedUntil,
 >>>>>>> origin/ishikas-15th-sept
+=======
+>>>>>>> origin/vidya-work
     });
   } catch (error) {
     console.error("Record integrity event error:", error);
@@ -329,10 +347,14 @@ const submitAssessment = async (req, res) => {
 const getActiveAssessment = async (req, res) => {
   try {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/vidya-work
     const session = await AssessmentSession.findOne({
       candidate: req.user._id,
       status: "active",
     }).sort({ createdAt: -1 });
+<<<<<<< HEAD
 =======
     const { challengeId } = req.query;
     
@@ -347,6 +369,8 @@ const getActiveAssessment = async (req, res) => {
 
     const session = await AssessmentSession.findOne(query).sort({ createdAt: -1 });
 >>>>>>> origin/ishikas-15th-sept
+=======
+>>>>>>> origin/vidya-work
 
     if (!session) {
       return res.json({
@@ -365,9 +389,12 @@ const getActiveAssessment = async (req, res) => {
         integrityScore: session.integrityScore,
         status: session.status,
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         lockedUntil: session.lockedUntil,
 >>>>>>> origin/ishikas-15th-sept
+=======
+>>>>>>> origin/vidya-work
       },
     });
   } catch (error) {

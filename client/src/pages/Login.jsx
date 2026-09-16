@@ -3,11 +3,14 @@ import { getApiUrl } from "../config/api";
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 import { signInWithPopup } from "firebase/auth";
 import { auth, googleProvider } from "../config/firebase";
 
 >>>>>>> origin/ishikas-15th-sept
+=======
+>>>>>>> origin/vidya-work
 function Login({
   onSignup,
   onCompanySignup,
@@ -20,6 +23,9 @@ function Login({
   const [loading, setLoading] = useState(false);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/vidya-work
   useEffect(() => {
     const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
     if (window.google?.accounts?.id && clientId) {
@@ -45,8 +51,11 @@ function Login({
   }, []);
 
 
+<<<<<<< HEAD
 =======
 >>>>>>> origin/ishikas-15th-sept
+=======
+>>>>>>> origin/vidya-work
   async function handleSubmit(e) {
     e.preventDefault();
 
@@ -118,10 +127,14 @@ function Login({
       localStorage.setItem("token", result.token);
       localStorage.setItem("user", JSON.stringify(result.user));
 <<<<<<< HEAD
+<<<<<<< HEAD
 sessionStorage.setItem("justLoggedIn", "true");
 =======
       sessionStorage.setItem("justLoggedIn", "true");
 >>>>>>> origin/ishikas-15th-sept
+=======
+sessionStorage.setItem("justLoggedIn", "true");
+>>>>>>> origin/vidya-work
       onLogin();
     } catch (error) {
       console.error(error);
@@ -132,6 +145,9 @@ sessionStorage.setItem("justLoggedIn", "true");
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/vidya-work
   function handleGoogleSignIn() {
     const clientId =
       import.meta.env.VITE_GOOGLE_CLIENT_ID ||
@@ -213,6 +229,7 @@ sessionStorage.setItem("justLoggedIn", "true");
         console.error("Google accounts.id prompt error:", e);
         setError("Failed to open Google Sign-In prompt.");
       }
+<<<<<<< HEAD
 =======
   async function handleGoogleSignIn() {
     try {
@@ -229,6 +246,8 @@ sessionStorage.setItem("justLoggedIn", "true");
       setError("Google popup was closed or authentication failed.");
       setLoading(false);
 >>>>>>> origin/ishikas-15th-sept
+=======
+>>>>>>> origin/vidya-work
     }
   }
 

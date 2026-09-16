@@ -19,6 +19,7 @@
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "express-rate-limit": "^8.7.0",
     "google-auth-library": "^11.0.2",
 =======
@@ -29,6 +30,10 @@
     "helmet": "^8.3.0",
     "hpp": "^0.2.3",
 >>>>>>> origin/ishikas-15th-sept
+=======
+    "express-rate-limit": "^8.7.0",
+    "google-auth-library": "^11.0.2",
+>>>>>>> origin/vidya-work
     "jsonwebtoken": "^9.0.3",
     "mongoose": "^9.9.4",
     "nodemailer": "^10.0.0",

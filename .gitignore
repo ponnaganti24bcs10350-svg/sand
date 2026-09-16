@@ -1,13 +1,19 @@
 node_modules
 .env
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/vidya-work
 dist
 build
 .DS_Store.env
 .env.local
+<<<<<<< HEAD
 =======
 .env.*
 dist
 build
 .DS_Store
 >>>>>>> origin/ishikas-15th-sept
+=======
+>>>>>>> origin/vidya-work

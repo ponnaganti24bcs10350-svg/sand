@@ -1,8 +1,12 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { useEffect, useState } from "react";
 =======
 import { useEffect, useState, useRef } from "react";
 >>>>>>> origin/ishikas-15th-sept
+=======
+import { useEffect, useState } from "react";
+>>>>>>> origin/vidya-work
 // Or if using Vite src imports: import badgeBg from "../assets/pexels-alipazani-2810836.jpg";
 import FileExplorer from "../components/FileExplorer";
 import CodeEditor from "../components/CodeEditor";
@@ -11,7 +15,11 @@ import { getApiUrl } from "../config/api";
 
 const API_URL = getApiUrl();
 
+<<<<<<< HEAD
 function ChallengeWorkspace({ selectedChallenge }) {
+=======
+function ChallengeWorkspace({ selectedChallenge,setSelectedChallenge }) {
+>>>>>>> origin/vidya-work
   const challengeId = selectedChallenge?.challengeId || null;
 
   const [challenge, setChallenge] = useState(null);
@@ -26,6 +34,7 @@ const [assessmentAlreadyActive, setAssessmentAlreadyActive] = useState(false);
   const [isRunning, setIsRunning] = useState(false);
   const [isNavigating, setIsNavigating] = useState(false);
 <<<<<<< HEAD
+<<<<<<< HEAD
 
   // State to handle physical card swapping animation
 =======
@@ -36,6 +45,10 @@ const [assessmentAlreadyActive, setAssessmentAlreadyActive] = useState(false);
   const [isWebcamShared, setIsWebcamShared] = useState(false);
   const [showTabSwitchWarning, setShowTabSwitchWarning] = useState(false);
 >>>>>>> origin/ishikas-15th-sept
+=======
+
+  // State to handle physical card swapping animation
+>>>>>>> origin/vidya-work
   const [isSwapped, setIsSwapped] = useState(false);
 
   useEffect(() => {
@@ -47,21 +60,75 @@ const [assessmentAlreadyActive, setAssessmentAlreadyActive] = useState(false);
     setIsSwapped(false);
   }, [challengeId]);
 <<<<<<< HEAD
+<<<<<<< HEAD
 const checkActiveAssessment = async () => {
 =======
 const checkActiveAssessment = async (targetChallengeId = null) => {
 >>>>>>> origin/ishikas-15th-sept
+=======
+  useEffect(() => {
+  async function loadSelectedChallenge() {
+    if (!challengeId) return;
+
+    const token = localStorage.getItem("token");
+
+    if (!token) return;
+
+    try {
+      const response = await fetch(
+        `${API_URL}/api/progress/current?challengeId=${encodeURIComponent(
+          challengeId
+        )}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      const data = await response.json();
+
+      if (!response.ok || !data.success || !data.data) {
+        throw new Error(
+          data.message || "Failed to load selected challenge"
+        );
+      }
+
+      setChallenge(data.data);
+
+      // Keep the selected challenge synchronized.
+      if (setSelectedChallenge) {
+        setSelectedChallenge({
+          challengeId: data.data.challengeId,
+        });
+      }
+    } catch (error) {
+      console.error(
+        "Failed to load selected challenge:",
+        error
+      );
+    }
+  }
+
+  loadSelectedChallenge();
+}, [challengeId, setSelectedChallenge]);
+const checkActiveAssessment = async () => {
+>>>>>>> origin/vidya-work
   try {
     const token = localStorage.getItem("token");
 
     if (!token) {
       setCheckingAssessment(false);
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/vidya-work
       return;
     }
 
     const response = await fetch(
       `${API_URL}/api/assessment/active`,
+<<<<<<< HEAD
 =======
       return false;
     }
@@ -75,6 +142,8 @@ const checkActiveAssessment = async (targetChallengeId = null) => {
     const response = await fetch(
       url,
 >>>>>>> origin/ishikas-15th-sept
+=======
+>>>>>>> origin/vidya-work
       {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -88,12 +157,16 @@ const checkActiveAssessment = async (targetChallengeId = null) => {
       setAssessmentSession(data.session);
       setIntegrityScore(data.session.integrityScore || 100);
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/vidya-work
       setAssessmentAlreadyActive(true);
     }
   } catch (error) {
     console.error("Failed to check active assessment:", error);
   } finally {
     setCheckingAssessment(false);
+<<<<<<< HEAD
 =======
       if (!targetChallengeId) setAssessmentAlreadyActive(true);
       return true;
@@ -112,6 +185,8 @@ const checkActiveAssessment = async (targetChallengeId = null) => {
   } finally {
     if (!targetChallengeId) setCheckingAssessment(false);
 >>>>>>> origin/ishikas-15th-sept
+=======
+>>>>>>> origin/vidya-work
   }
 };
 useEffect(() => {
@@ -182,31 +257,42 @@ useEffect(() => {
         setIntegrityScore(data.integrityScore);
       }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
       if (data.lockedUntil) {
         setAssessmentSession(prev => prev ? { ...prev, lockedUntil: data.lockedUntil } : prev);
       }
 >>>>>>> origin/ishikas-15th-sept
+=======
+>>>>>>> origin/vidya-work
     } catch (error) {
       console.error("Integrity event error:", error);
     }
   };
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   async function startAssessmentSession() {
 =======
   async function startAssessmentSession(targetId = null) {
 >>>>>>> origin/ishikas-15th-sept
+=======
+  async function startAssessmentSession() {
+>>>>>>> origin/vidya-work
     const token = localStorage.getItem("token");
     if (!token) throw new Error("You are not logged in");
 
     const body = {};
+<<<<<<< HEAD
 <<<<<<< HEAD
     if (challengeId) body.challengeId = challengeId;
 =======
     const idToStart = targetId && typeof targetId === "string" ? targetId : challengeId;
     if (idToStart) body.challengeId = idToStart;
 >>>>>>> origin/ishikas-15th-sept
+=======
+    if (challengeId) body.challengeId = challengeId;
+>>>>>>> origin/vidya-work
 
     const response = await fetch(`${API_URL}/api/assessment/start`, {
       method: "POST",
@@ -268,6 +354,7 @@ useEffect(() => {
     const revealedChallenge = data.data;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     const savedCodeStr = localStorage.getItem(`challenge_code_${revealedChallenge.challengeId}`);
     if (savedCodeStr) {
@@ -280,6 +367,8 @@ useEffect(() => {
     }
 
 >>>>>>> origin/ishikas-15th-sept
+=======
+>>>>>>> origin/vidya-work
     if (!revealedChallenge?.files) {
       throw new Error("Invalid challenge data received");
     }
@@ -293,10 +382,14 @@ useEffect(() => {
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/vidya-work
   async function handleStartProctoring() {
     try {
       setResult(null);
       const session = await startAssessmentSession();
+<<<<<<< HEAD
 =======
   async function requestScreenShare() {
     if (isScreenShared && screenStream) return true;
@@ -395,6 +488,8 @@ useEffect(() => {
 
       const session = await startAssessmentSession(targetId);
 >>>>>>> origin/ishikas-15th-sept
+=======
+>>>>>>> origin/vidya-work
       sessionStorage.setItem("assessmentStarted", "true");
       setProctoringActive(true);
 
@@ -422,6 +517,7 @@ useEffect(() => {
 
     const handleVisibilityChange = () => {
 <<<<<<< HEAD
+<<<<<<< HEAD
       if (document.hidden) reportIntegrityEvent("tab_switch");
 =======
       if (document.hidden) {
@@ -429,6 +525,9 @@ useEffect(() => {
         setShowTabSwitchWarning(true);
       }
 >>>>>>> origin/ishikas-15th-sept
+=======
+      if (document.hidden) reportIntegrityEvent("tab_switch");
+>>>>>>> origin/vidya-work
     };
 
     document.addEventListener("visibilitychange", handleVisibilityChange);
@@ -444,17 +543,23 @@ useEffect(() => {
     };
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/vidya-work
     // const handleCopy = (e) => { e.preventDefault(); reportIntegrityEvent("copy"); };
     // const handlePaste = (e) => { e.preventDefault(); reportIntegrityEvent("paste"); };
     // const handleCut = (e) => { e.preventDefault(); reportIntegrityEvent("cut"); };
     const handleCopy = () => {};
 const handlePaste = () => {};
 const handleCut = () => {};
+<<<<<<< HEAD
 =======
     const handleCopy = (e) => { e.preventDefault(); reportIntegrityEvent("copy"); };
     const handlePaste = (e) => { e.preventDefault(); reportIntegrityEvent("paste"); };
     const handleCut = (e) => { e.preventDefault(); reportIntegrityEvent("cut"); };
 >>>>>>> origin/ishikas-15th-sept
+=======
+>>>>>>> origin/vidya-work
     const handleContextMenu = (e) => { e.preventDefault(); reportIntegrityEvent("right_click"); };
 
     // const handleKeyDown = (e) => {
@@ -469,6 +574,7 @@ const handleCut = () => {};
     window.addEventListener("blur", handleBlur);
     document.addEventListener("fullscreenchange", handleFullscreenChange);
 <<<<<<< HEAD
+<<<<<<< HEAD
     // document.addEventListener("copy", handleCopy, true);
     // document.addEventListener("paste", handlePaste, true);
     // document.addEventListener("cut", handleCut, true);
@@ -477,6 +583,11 @@ const handleCut = () => {};
     document.addEventListener("paste", handlePaste, true);
     document.addEventListener("cut", handleCut, true);
 >>>>>>> origin/ishikas-15th-sept
+=======
+    // document.addEventListener("copy", handleCopy, true);
+    // document.addEventListener("paste", handlePaste, true);
+    // document.addEventListener("cut", handleCut, true);
+>>>>>>> origin/vidya-work
     // document.addEventListener("contextmenu", handleContextMenu);
     // document.addEventListener("keydown", handleKeyDown, true);
     document.addEventListener("contextmenu", handleContextMenu);
@@ -484,6 +595,7 @@ const handleCut = () => {};
     return () => {
       window.removeEventListener("blur", handleBlur);
       document.removeEventListener("fullscreenchange", handleFullscreenChange);
+<<<<<<< HEAD
 <<<<<<< HEAD
       // document.removeEventListener("copy", handleCopy, true);
       // document.removeEventListener("paste", handlePaste, true);
@@ -493,6 +605,11 @@ const handleCut = () => {};
       document.removeEventListener("paste", handlePaste, true);
       document.removeEventListener("cut", handleCut, true);
 >>>>>>> origin/ishikas-15th-sept
+=======
+      // document.removeEventListener("copy", handleCopy, true);
+      // document.removeEventListener("paste", handlePaste, true);
+      // document.removeEventListener("cut", handleCut, true);
+>>>>>>> origin/vidya-work
       // document.removeEventListener("contextmenu", handleContextMenu);
       // document.removeEventListener("keydown", handleKeyDown, true);
       document.removeEventListener("contextmenu", handleContextMenu);
@@ -502,6 +619,7 @@ const handleCut = () => {};
   function handleCodeChange(newCode) {
     setChallenge((previous) => {
       if (!previous) return previous;
+<<<<<<< HEAD
 <<<<<<< HEAD
       return {
         ...previous,
@@ -513,10 +631,16 @@ const handleCut = () => {};
         ...previous,
         files: updatedFiles,
 >>>>>>> origin/ishikas-15th-sept
+=======
+      return {
+        ...previous,
+        files: { ...previous.files, [selectedFile]: newCode || "" },
+>>>>>>> origin/vidya-work
       };
     });
   }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
   function handleResetCode() {
@@ -528,6 +652,8 @@ const handleCut = () => {};
   }
 
 >>>>>>> origin/ishikas-15th-sept
+=======
+>>>>>>> origin/vidya-work
   async function loadChallenge(direction) {
     if (isNavigating || isRunning || !challenge) return;
 
@@ -552,6 +678,7 @@ const handleCut = () => {};
       if (!nextChallenge) throw new Error("No challenge available");
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
       const savedCodeStr = localStorage.getItem(`challenge_code_${nextChallenge.challengeId}`);
       if (savedCodeStr) {
@@ -564,10 +691,13 @@ const handleCut = () => {};
       }
 
 >>>>>>> origin/ishikas-15th-sept
+=======
+>>>>>>> origin/vidya-work
       setChallenge(nextChallenge);
       const firstFile = Object.keys(nextChallenge.files || {})[0];
       setSelectedFile(firstFile || "");
       setResult(null);
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
       
@@ -584,6 +714,8 @@ const handleCut = () => {};
         }
       }
 >>>>>>> origin/ishikas-15th-sept
+=======
+>>>>>>> origin/vidya-work
     } catch (error) {
       console.error(`Failed to load ${direction} challenge:`, error);
       setResult({
@@ -680,6 +812,7 @@ const handleCut = () => {};
   setIntegrityScore(data.assessment.integrityScore);
 setProctoringActive(false);
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 setIsScreenShared(false);
 if (screenStream) {
@@ -692,6 +825,8 @@ if (webcamStream) {
   setWebcamStream(null);
 }
 >>>>>>> origin/ishikas-15th-sept
+=======
+>>>>>>> origin/vidya-work
 
 sessionStorage.removeItem("assessmentStarted");
       if (document.fullscreenElement) {
@@ -740,9 +875,12 @@ sessionStorage.removeItem("assessmentStarted");
     document.addEventListener("mouseup", stopResize);
   }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> origin/ishikas-15th-sept
+=======
+>>>>>>> origin/vidya-work
   if (checkingAssessment) {
   return (
     <div className="badge-screen-container">
@@ -770,10 +908,14 @@ if (assessmentAlreadyActive && !challenge) {
         </p>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/vidya-work
         <button
           className="badge-start-btn"
           onClick={async () => {
             try {
+<<<<<<< HEAD
 =======
           <button
           className="badge-start-btn"
@@ -786,6 +928,8 @@ if (assessmentAlreadyActive && !challenge) {
               if (!webcamShared) return;
 
 >>>>>>> origin/ishikas-15th-sept
+=======
+>>>>>>> origin/vidya-work
               await document.documentElement.requestFullscreen();
 
               const token = localStorage.getItem("token");
@@ -823,6 +967,7 @@ if (assessmentAlreadyActive && !challenge) {
   );
 }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 if (proctoringActive && !isScreenShared && !screenSharedRef.current) {
@@ -894,6 +1039,8 @@ if (proctoringActive && showTabSwitchWarning) {
 }
 
 >>>>>>> origin/ishikas-15th-sept
+=======
+>>>>>>> origin/vidya-work
   /*
    * ------------------------------------
    * BADGE OVERLAY: TWO-CARD SWAP OVERLAY
@@ -1002,10 +1149,14 @@ if (proctoringActive && showTabSwitchWarning) {
                 display: "flex",
                 alignItems: "center",
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/vidya-work
                 gap: "6px",
                 fontSize: "13px",
                 fontWeight: 600,
                 whiteSpace: "nowrap",
+<<<<<<< HEAD
 =======
                 backgroundColor: integrityScore > 85 ? "rgba(16, 185, 129, 0.1)" : integrityScore > 75 ? "rgba(245, 158, 11, 0.1)" : "rgba(239, 68, 68, 0.1)",
                 color: integrityScore > 85 ? "#10b981" : integrityScore > 75 ? "#f59e0b" : "#ef4444",
@@ -1015,6 +1166,8 @@ if (proctoringActive && showTabSwitchWarning) {
                 fontSize: "14px",
                 border: `1px solid ${integrityScore > 85 ? "rgba(16, 185, 129, 0.2)" : integrityScore > 75 ? "rgba(245, 158, 11, 0.2)" : "rgba(239, 68, 68, 0.2)"}`,
 >>>>>>> origin/ishikas-15th-sept
+=======
+>>>>>>> origin/vidya-work
               }}
             >
               Integrity: {integrityScore}/100
@@ -1030,6 +1183,9 @@ if (proctoringActive && showTabSwitchWarning) {
           </button>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/vidya-work
          
         </div>
       </header>
@@ -1072,6 +1228,7 @@ if (proctoringActive && showTabSwitchWarning) {
       <div className="terminal-panel" style={{ height: `${terminalHeight}px` }}>
         <TestResults result={result} isRunning={isRunning} />
       </div>
+<<<<<<< HEAD
 =======
           <button
             className="nav-button"
@@ -1139,6 +1296,8 @@ if (proctoringActive && showTabSwitchWarning) {
           </div>   {/* workspace-main */}
       )}
 >>>>>>> origin/ishikas-15th-sept
+=======
+>>>>>>> origin/vidya-work
     </div>
   );
 }

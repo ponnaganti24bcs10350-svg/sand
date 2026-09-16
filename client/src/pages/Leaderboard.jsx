@@ -86,16 +86,22 @@ function Leaderboard() {
                   <div className="skill">
                     <div className="skill-label">
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/vidya-work
                       <span>JavaScript</span>
 
                       <span>
                         {user.javascriptScore}%
+<<<<<<< HEAD
 =======
                       <span>MERN</span>
 
                       <span>
                         {user.mernScore}%
 >>>>>>> origin/ishikas-15th-sept
+=======
+>>>>>>> origin/vidya-work
                       </span>
                     </div>
 
@@ -104,15 +110,22 @@ function Leaderboard() {
                         className="progress"
                         style={{
 <<<<<<< HEAD
+<<<<<<< HEAD
                           width: `${user.javascriptScore}%`,
 =======
                           width: `${user.mernScore}%`,
 >>>>>>> origin/ishikas-15th-sept
+=======
+                          width: `${user.javascriptScore}%`,
+>>>>>>> origin/vidya-work
                         }}
                       />
                     </div>
                   </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/vidya-work
 
                   <div className="skill">
                     <div className="skill-label">
@@ -142,8 +155,11 @@ function Leaderboard() {
                   <div className="score-label">
                     OVERALL SCORE
                   </div>
+<<<<<<< HEAD
 =======
 >>>>>>> origin/ishikas-15th-sept
+=======
+>>>>>>> origin/vidya-work
                 </div>
               </div>
             ))}

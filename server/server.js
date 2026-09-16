@@ -13,6 +13,7 @@ const progressRoutes = require("./routes/progressRoutes");
 const invitationRoutes = require("./routes/invitationRoutes");
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 const helmet = require("helmet");
 const mongoSanitize = require("express-mongo-sanitize");
@@ -20,10 +21,13 @@ const hpp = require("hpp");
 const rateLimit = require("express-rate-limit");
 
 >>>>>>> origin/ishikas-15th-sept
+=======
+>>>>>>> origin/vidya-work
 const app = express();
 
 // Middleware
 app.use(cors());
+<<<<<<< HEAD
 <<<<<<< HEAD
 app.use(express.json({limit:"1mb"}));
 =======
@@ -53,6 +57,9 @@ app.use(mongoSanitize());
 // Set secure HTTP headers
 app.use(helmet());
 >>>>>>> origin/ishikas-15th-sept
+=======
+app.use(express.json({limit:"1mb"}));
+>>>>>>> origin/vidya-work
 
 // Health check
 app.get("/", (req, res) => {

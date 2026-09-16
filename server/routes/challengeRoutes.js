@@ -11,19 +11,27 @@ const { protect } = require("../middleware/auth");
 const router = express.Router();
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 router.get("/random", protect ,(req, res) => {
 =======
 router.get("/random", protect, (req, res) => {
 >>>>>>> origin/ishikas-15th-sept
+=======
+router.get("/random", protect ,(req, res) => {
+>>>>>>> origin/vidya-work
   const randomIndex = Math.floor(
     Math.random() * challenges.length
   );
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/vidya-work
   const randomChallenge =
     challenges[randomIndex];
 
   res.json(randomChallenge);
+<<<<<<< HEAD
 =======
   const { challengeId, title, difficulty } =
     challenges[randomIndex];
@@ -32,6 +40,8 @@ router.get("/random", protect, (req, res) => {
   // is gated behind an active assessment session via assessmentController.
   res.json({ challengeId, title, difficulty });
 >>>>>>> origin/ishikas-15th-sept
+=======
+>>>>>>> origin/vidya-work
 });
 
 router.post(

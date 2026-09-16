@@ -35,6 +35,7 @@ const assessmentSessionSchema = new mongoose.Schema(
     },
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     lockedUntil: {
       type: Date,
@@ -42,6 +43,8 @@ const assessmentSessionSchema = new mongoose.Schema(
     },
 
 >>>>>>> origin/ishikas-15th-sept
+=======
+>>>>>>> origin/vidya-work
     events: [
       {
         type: {
@@ -57,10 +60,13 @@ const assessmentSessionSchema = new mongoose.Schema(
             "window_blur",
             "multiple_session",
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
             "screen_share_stopped",
             "webcam_stopped",
 >>>>>>> origin/ishikas-15th-sept
+=======
+>>>>>>> origin/vidya-work
           ],
         },
 
@@ -83,10 +89,14 @@ const assessmentSessionSchema = new mongoose.Schema(
 
 assessmentSessionSchema.index(
 <<<<<<< HEAD
+<<<<<<< HEAD
   { candidate: 1, status: 1 },
 =======
   { candidate: 1, challenge: 1, status: 1 },
 >>>>>>> origin/ishikas-15th-sept
+=======
+  { candidate: 1, status: 1 },
+>>>>>>> origin/vidya-work
   {
     unique: true,
     partialFilterExpression: {

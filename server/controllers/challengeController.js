@@ -59,9 +59,15 @@ async function runChallenge(req, res) {
     if (challengeId === "1") {
       result = await testChallenge1(files);
     } else if (challengeId === "2") {
+<<<<<<< HEAD
       result = testChallenge2(files);
     } else if (challengeId === "3") {
       result = testChallenge3(files);
+=======
+      result = await testChallenge2(files);
+    } else if (challengeId === "3") {
+      result = await testChallenge3(files);
+>>>>>>> origin/vidya-work
     } else {
       return res.json({
         passed: false,
@@ -139,10 +145,13 @@ async function runChallenge(req, res) {
               lastSolvedDate: today,
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
               lastChallengeSolvedAt: new Date(),
 
 >>>>>>> origin/ishikas-15th-sept
+=======
+>>>>>>> origin/vidya-work
               totalSolved: {
                 $add: ["$totalSolved", 1],
               },

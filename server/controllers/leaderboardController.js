@@ -1,32 +1,45 @@
 const User = require("../models/User");
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 const challenges = require("../challenges/challenges");
 >>>>>>> origin/ishikas-15th-sept
+=======
+>>>>>>> origin/vidya-work
 
 // GET LEADERBOARD
 // Only student accounts appear on the developer leaderboard.
 async function getLeaderboard(req, res) {
   try {
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     const totalChallenges = challenges.length;
 
 >>>>>>> origin/ishikas-15th-sept
+=======
+>>>>>>> origin/vidya-work
     const users = await User.find({
       role: "student",
     })
       .select(
 <<<<<<< HEAD
+<<<<<<< HEAD
         "name javascriptScore reactScore totalSolved"
 =======
         "name totalSolved lastChallengeSolvedAt"
 >>>>>>> origin/ishikas-15th-sept
+=======
+        "name javascriptScore reactScore totalSolved"
+>>>>>>> origin/vidya-work
       )
       .lean();
 
     const sortedUsers = users.sort((a, b) => {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/vidya-work
       const aOverall =
         (a.javascriptScore + a.reactScore) / 2;
 
@@ -34,6 +47,7 @@ async function getLeaderboard(req, res) {
         (b.javascriptScore + b.reactScore) / 2;
 
       return bOverall - aOverall;
+<<<<<<< HEAD
 =======
       if (b.totalSolved !== a.totalSolved) {
         return b.totalSolved - a.totalSolved;
@@ -44,11 +58,16 @@ async function getLeaderboard(req, res) {
       
       return aTime - bTime;
 >>>>>>> origin/ishikas-15th-sept
+=======
+>>>>>>> origin/vidya-work
     });
 
     const rankedUsers = sortedUsers.map(
       (user, index) => {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/vidya-work
         const overallScore = Math.round(
           (user.javascriptScore +
             user.reactScore) /
@@ -72,6 +91,7 @@ async function getLeaderboard(req, res) {
             user.totalSolved,
 
           overallScore,
+<<<<<<< HEAD
 =======
         const mernScore = totalChallenges > 0 
           ? Math.min(Math.round((user.totalSolved / totalChallenges) * 100), 100)
@@ -84,6 +104,8 @@ async function getLeaderboard(req, res) {
           mernScore,
           totalSolved: user.totalSolved,
 >>>>>>> origin/ishikas-15th-sept
+=======
+>>>>>>> origin/vidya-work
         };
       }
     );

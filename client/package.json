@@ -12,9 +12,12 @@
   "dependencies": {
     "@monaco-editor/react": "^4.7.0",
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     "firebase": "^12.19.0",
 >>>>>>> origin/ishikas-15th-sept
+=======
+>>>>>>> origin/vidya-work
     "react": "^19.2.8",
     "react-dom": "^19.2.8"
   },
